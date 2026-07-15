@@ -64,7 +64,7 @@ export default function StarBackground() {
 
     const initStars = () => {
       stars = [];
-      const numberOfStars = Math.floor((canvas.width * canvas.height) / 1100); 
+      const numberOfStars = Math.min(300, Math.floor((canvas.width * canvas.height) / 3500));
 
       for (let i = 0; i < numberOfStars; i++) {
         const isNear = Math.random() > 0.7; 
@@ -98,7 +98,7 @@ export default function StarBackground() {
     const initLoveParticles = () => {
       loveParticles = [];
       //Berfungsi untuk menentukan jumlah partikel hati berdasarkan ukuran canvas. contoh ubah 50000 menjadi 30000 untuk lebih banyak partikel
-      const numberOfParticles = Math.floor((canvas.width * canvas.height) / 80000);
+      const numberOfParticles = Math.min(40, Math.floor((canvas.width * canvas.height) / 100000));
       //Berfungsi untuk menentukan warna partikel
       const colors = [
         "255, 175, 204", 
@@ -182,9 +182,8 @@ export default function StarBackground() {
       ctx.quadraticCurveTo(x, y, x, y + size / 4);
       ctx.closePath();
 
-      // Menggunakan shadowBlur sebagai ganti filter untuk efek soft/out-of-focus
-      ctx.shadowColor = glowColor;
-      ctx.shadowBlur = blur;
+      // PERBAIKAN: Hapus ctx.shadowBlur dan ctx.shadowColor. 
+      // Gunakan fill biasa atau trik layer ganda (jauh lebih ringan)
       ctx.fillStyle = color;
       ctx.fill();
     };

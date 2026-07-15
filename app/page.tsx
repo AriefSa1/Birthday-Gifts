@@ -1,24 +1,23 @@
 "use client";
 
-// PERBAIKAN 1: Tambahkan useEffect
 import { useState, useRef, useEffect } from "react"; 
 import { AnimatePresence, motion } from "framer-motion";
 import Countdown from "./components/Countdown";
 import GiftBox from "./components/GiftBox";
-import MainContent from "./components/MainContent";
-import SideContent from "./components/LatterSection";
-import Galery from "./components/GalerySection";
-import HeroCelebration from "./components/HeroSection";
 import PolaroidSection from "./components/PolaroidSection";
+import SurpriseSection from "./components/SurpriseSection";
+import GalerySection from "./components/GalerySection";
+import HeroSection from "./components/HeroSection";
+import LatterSection from "./components/LatterSection";
+import ReasonsSection from "./components/ReasonsSection";
+import TimelineSection from "./components/TimelineSection";
 
 export default function Home() {
   const [step, setStep] = useState(0);
   const [isCountdownFinished, setIsCountdownFinished] = useState(false);
-
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  // PERBAIKAN 2: Gunakan useEffect untuk mendengarkan perubahan 'step'
-  // Jika step sudah mencapai angka 3, maka mainkan lagunya
+  // Auto-play musik saat mencapai step 3
   useEffect(() => {
     if (step === 3 && audioRef.current) {
       audioRef.current.play().catch((error) => {
@@ -27,9 +26,33 @@ export default function Home() {
     }
   }, [step]);
 
+  // Auto transition dari Countdown ke GiftBox
+  useEffect(() => {
+    if (isCountdownFinished) {
+      const timer = setTimeout(() => {
+        setStep(1);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [isCountdownFinished]);
+
+  // PERBAIKAN: Menambahkan flex, items-center, dan justify-center agar tepat di tengah
+  const SnapSection = ({ children }: { children: React.ReactNode }) => (
+    <div className="snap-start snap-always w-full min-h-dvh flex flex-col items-center justify-center px-4 overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95, y: 50 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: false, amount: 0.3 }}
+        className="w-full flex items-center justify-center"
+      >
+        {children}
+      </motion.div>
+    </div>
+  );
+
   return (
-    <main className="h-[100dvh] w-screen flex flex-col items-center justify-center overflow-hidden relative z-10">
-      {/* PERBAIKAN 3: Cukup letakkan satu tag audio di atas sini */}
+    <main className="h-dvh w-screen flex flex-col items-center justify-center overflow-hidden relative z-10">
       <audio ref={audioRef} src="/....mp3" loop />
 
       <AnimatePresence mode="wait">
@@ -40,14 +63,15 @@ export default function Home() {
             key="layar1"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="flex flex-col items-center text-center px-4"
+            exit={{ opacity: 0, scale: 1.1, filter: "blur(5px)" }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col items-center justify-center text-center px-4 w-full h-full"
           >
             <p className="text-xs tracking-[0.3em] uppercase text-fuchsia-300/90 mb-3 drop-shadow-[0_0_8px_rgba(217,70,239,0.5)]">
               ✧ Menghitung Hari ✧
             </p>
             
-            <h1 className="font-serif text-5xl md:text-7xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-br from-white via-pink-100 to-purple-400 drop-shadow-[0_0_20px_rgba(233,213,255,0.4)]">
+            <h1 className="font-serif text-5xl md:text-7xl font-bold mb-4 text-transparent bg-clip-text bg-linear-to-br from-white via-pink-100 to-purple-400 drop-shadow-[0_0_20px_rgba(233,213,255,0.4)]">
               Your Special Day <br/> is Coming
             </h1>
             
@@ -55,24 +79,14 @@ export default function Home() {
               Sesuatu yang indah sedang menunggu untukmu 🤍
             </p>
             
-            <Countdown targetDate="2026-06-31T00:00:00" onComplete={() => setIsCountdownFinished(true)} />
+            <Countdown targetDate="2026-07-31T00:00:00" onComplete={() => setIsCountdownFinished(true)} />
             
             <p className="mt-10 text-xs text-purple-300/40 mb-2 tracking-[0.5em]">
               ✧ ✧ ✧
             </p>
             
-            <div className="mt-8 h-20 flex flex-col items-center justify-start">
-              {isCountdownFinished ? (
-                <motion.button 
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1 }}
-                  onClick={() => setStep(1)}
-                  className="px-8 py-3 rounded-full border border-fuchsia-300/40 bg-purple-550/30 hover:bg-fuchsia-550/30 backdrop-blur-md transition-all duration-300 flex items-center gap-3 text-sm tracking-widest uppercase text-white shadow-[0_0_20px_rgba(217,70,239,0.4)] hover:shadow-[0_0_30px_rgba(217,70,239,0.6)]"
-                >
-                  <span className="text-lg font-bold font-serif drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">🎁</span> Open Her Gift
-                </motion.button>
-              ) : (
+            <div className="mt-8 h-20 flex flex-col items-center justify-center">
+              {!isCountdownFinished && (
                 <p className="text-xs text-purple-300/60 mb-2 animate-pulse tracking-widest uppercase drop-shadow-sm">
                   Tunggu sampai waktunya tiba...
                 </p>
@@ -89,22 +103,23 @@ export default function Home() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 1.2 }}
             transition={{ duration: 1 }}
-            className="flex flex-col items-center text-center"
+            className="flex flex-col items-center justify-center text-center w-full h-full"
           >
             <GiftBox onOpen={() => setStep(2)} />
           </motion.div>
         )}
 
-        {/* LAYAR 3: SELEBRASI AWAL */}
+        {/* LAYAR 3: SELEBRASI AWAL (HERO SECTION) */}
         {step === 2 && (
           <motion.div
             key="layar3"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="w-full h-full"
+            // Menambahkan flex layout agar konten di dalam hero section berada di tengah
+            className="w-full h-full flex items-center justify-center"
           >
-            <HeroCelebration onStart={() => setStep(3)} />
+            <HeroSection onStart={() => setStep(3)} />
           </motion.div>
         )}
 
@@ -129,57 +144,29 @@ export default function Home() {
               }
             `}</style>
 
-            {/* HALAMAN 1: POLAROID */}
-            <div className="snap-start snap-always w-full min-h-[100dvh]">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 40 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                viewport={{ once: false, amount: 0.3 }}
-                className="w-full h-full"
-              >
-                <PolaroidSection />
-              </motion.div>
-            </div>
+            <SnapSection>
+              <PolaroidSection />
+            </SnapSection>
 
-            {/* HALAMAN 2: SIDE CONTENT */}
-            <div className="snap-start snap-always w-full min-h-[100dvh]">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 40 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                viewport={{ once: false, amount: 0.3 }}
-                className="w-full h-full"
-              >
-                <SideContent />
-              </motion.div>
-            </div>
+            <SnapSection>
+              <TimelineSection />
+            </SnapSection>
 
-            {/* HALAMAN 3: GALERY SECTION */}
-            <div className="snap-start snap-always w-full min-h-[100dvh]">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 40 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                viewport={{ once: false, amount: 0.3 }}
-                className="w-full h-full"
-              >
-                <Galery />
-              </motion.div>
-            </div>
+            <SnapSection>
+              <ReasonsSection />
+            </SnapSection>
 
-            {/* HALAMAN 3: MAIN CONTENT */}
-            <div className="snap-start snap-always w-full min-h-[100dvh]">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 40 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                viewport={{ once: false, amount: 0.3 }}
-                className="w-full h-full"
-              >
-                <MainContent />
-              </motion.div>
-            </div>
+            <SnapSection>
+              <GalerySection />
+            </SnapSection>
+
+            <SnapSection>
+              <LatterSection />
+            </SnapSection>
+
+            <SnapSection>
+              <SurpriseSection />
+            </SnapSection>
 
           </motion.div>
         )}

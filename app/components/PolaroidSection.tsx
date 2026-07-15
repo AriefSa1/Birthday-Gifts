@@ -1,7 +1,9 @@
 "use client";
 
 import React from "react";
+import { useState, useRef } from 'react';
 import { motion, Variants, useMotionValue, useTransform, useSpring } from "framer-motion";
+import Image from "next/image";
 
 // Daftar 15 polaroid untuk bentuk hati (Center)
 const polaroids = [
@@ -34,6 +36,17 @@ const sparks = [
 ];
 
 export default function PolaroidSection() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  const togglePlay = () => {
+    if (isPlaying) {
+      audioRef.current?.pause();
+    } else {
+      audioRef.current?.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
   
   // Logika 3D Parallax untuk Hati
   const mouseX = useMotionValue(0.5);
@@ -62,29 +75,36 @@ export default function PolaroidSection() {
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, scale: 1.5, x: "-50%", y: "-50%", filter: "blur(10px)" },
+    hidden: { opacity: 0, scale: 1.2, x: "-50%", y: "-50%" },
     show: (rotate: number) => ({
-      opacity: 1, scale: 1, x: "-50%", y: "-50%", rotate: rotate, filter: "blur(0px)",
+      opacity: 1, 
+      scale: 1, 
+      x: "-50%", 
+      y: "-50%", 
+      rotate: rotate, 
+      // Gunakan transform-gpu untuk memaksa hardware acceleration
       transition: { type: "spring", stiffness: 100, damping: 15 },
     }),
   };
 
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center py-24 z-20 overflow-hidden">
+      <audio ref={audioRef} src="/lagu-romantis.wav" loop />
       
       {/* VIGNETTE & AURA */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(7,1,10,0.8)_100%)] pointer-events-none z-0" />
       <motion.div
         animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100vw] h-[100vw] max-w-[800px] max-h-[800px] bg-[radial-gradient(circle_at_center,rgba(217,70,239,0.3)_0%,rgba(147,51,234,0.1)_40%,transparent_70%)] blur-[50px] pointer-events-none z-0"
+        // PERBAIKAN: Tambahkan transform-gpu dan will-change-transform
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-[100vw] max-w-200 max-h-200 bg-[radial-gradient(circle_at_center,rgba(217,70,239,0.3)_0%,rgba(147,51,234,0.1)_40%,transparent_70%)] blur-[50px] pointer-events-none z-0 transform-gpu will-change-transform"
       />
 
       {/* CINCIN KOSMIK (Latar Belakang Estetik) */}
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] h-[85vw] max-w-[850px] max-h-[850px] border-[1px] border-fuchsia-400/20 rounded-full border-dashed pointer-events-none z-0 hidden md:block"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] h-[85vw] max-w-212.5 max-h-212.5 border border-fuchsia-400/20 rounded-full border-dashed pointer-events-none z-0 hidden md:block transform-gpu"
       />
 
       {/* ========================================= */}
@@ -104,7 +124,7 @@ export default function PolaroidSection() {
         <p className="text-sm text-purple-100/80 font-light leading-relaxed drop-shadow-sm">
           "Seperti bintang di galaksi yang tak terhitung jumlahnya, begitu juga kenangan yang kita buat. Setiap detiknya sangat berharga, dan aku ingin menyimpannya di sini selamanya."
         </p>
-        <div className="w-full h-[1px] bg-gradient-to-r from-fuchsia-400/50 to-transparent mt-2" />
+        <div className="w-full h-px bg-linear-to-r from-fuchsia-400/50 to-transparent mt-2" />
         <p className="text-[10px] text-fuchsia-300/60 tracking-widest uppercase">Chapter 1 • Kenangan</p>
       </motion.div>
 
@@ -122,7 +142,9 @@ export default function PolaroidSection() {
         <div className="flex items-center gap-4 bg-black/20 p-3 rounded-xl border border-white/5">
           {/* Piringan Hitam Berputar */}
           <div className="w-12 h-12 rounded-full border border-fuchsia-400/30 bg-[radial-gradient(circle_at_center,#111_30%,#333_100%)] flex items-center justify-center animate-spin" style={{ animationDuration: '4s' }}>
-            <div className="w-4 h-4 bg-fuchsia-300 rounded-full shadow-[0_0_10px_#d946ef]" />
+            <button onClick={togglePlay} className={`w-4 h-4 bg-fuchsia-300 rounded-full shadow-[0_0_10px_#d946ef] flex items-center justify-center text-2xl transition-all duration-300`}>
+                {!isPlaying ? '▶' : '⏸'}
+            </button>
           </div>
           <div>
             <h4 className="text-fuchsia-100 text-xs font-bold tracking-widest uppercase mb-1">Now Playing</h4>
@@ -136,7 +158,7 @@ export default function PolaroidSection() {
         <p className="text-xs text-purple-100/60 font-light mt-2 text-right">
           01:43 / 03:00
         </p>
-        <div className="w-full h-[1px] bg-gradient-to-l from-fuchsia-300/50 to-transparent my-1" />
+        <div className="w-full h-0.5 bg-linear-to-l from-fuchsia-300/50 to-transparent my-1" />
         <p className="text-[10px] text-fuchsia-300/60 tracking-widest uppercase text-right">Timeless</p>
       </motion.div>
 
@@ -147,7 +169,8 @@ export default function PolaroidSection() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: [0, 1, 0], y: [-10, -30], scale: [0.8, 1.2, 0.8] }}
           transition={{ duration: spark.duration, repeat: Infinity, delay: spark.delay, ease: "easeInOut" }}
-          className="absolute bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)] z-10 pointer-events-none"
+          // PERBAIKAN: Tambahkan transform-gpu
+          className="absolute bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)] z-10 pointer-events-none transform-gpu will-change-transform"
           style={{ top: spark.top, left: spark.left, width: spark.size, height: spark.size }}
         />
       ))}
@@ -163,7 +186,7 @@ export default function PolaroidSection() {
         <p className="text-xs tracking-[0.4em] uppercase text-fuchsia-300/90 mb-3 drop-shadow-[0_0_8px_rgba(217,70,239,0.5)]">
           ✧ Our Memories ✧
         </p>
-        <h2 className="font-serif text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-pink-100 to-purple-400 drop-shadow-[0_0_15px_rgba(233,213,255,0.4)]">
+        <h2 className="font-serif text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-linear-to-r from-white via-pink-100 to-purple-400 drop-shadow-[0_0_15px_rgba(233,213,255,0.4)]">
           A Glimpse of Us
         </h2>
         <p className="mt-4 text-sm font-light italic text-purple-200/70 drop-shadow-md">
@@ -173,7 +196,7 @@ export default function PolaroidSection() {
 
       {/* --- AREA TUMPUKAN POLAROID (INTI HATI) --- */}
       <div 
-        className="relative w-full flex items-center justify-center perspective-[1200px]"
+        className="relative w-full flex items-center justify-center perspective-distant"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
       >
@@ -181,8 +204,8 @@ export default function PolaroidSection() {
           style={{ rotateX, rotateY }}
           animate={{ y: [-5, 5, -5] }} 
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          // KUNCI RESPONSIF: Pada layar besar (PC), kita batasi maksimal lebarnya agar tidak menabrak panel kiri/kanan
-          className="relative w-[90vw] max-w-[550px] lg:max-w-[650px] aspect-square flex items-center justify-center z-20"
+          // PERBAIKAN: Tambahkan transform-gpu agar kalkulasi 3D Parallax tidak membebani CPU
+          className="relative w-[90vw] max-w-137.5 lg:max-w-162.5 aspect-square flex items-center justify-center z-20 transform-gpu"
         >
           <motion.div
             variants={containerVariants}
@@ -196,7 +219,8 @@ export default function PolaroidSection() {
                 key={item.id}
                 custom={item.rotate} 
                 variants={itemVariants}
-                className="absolute w-[20%] md:w-[18%] aspect-[3/3.8] origin-center cursor-pointer"
+                // PERBAIKAN: Tambahkan will-change-transform agar transisi saat dihover jauh lebih smooth
+                className="absolute w-[20%] md:w-[18%] aspect-[3/3.8] origin-center cursor-pointer will-change-transform"
                 style={{ 
                   top: item.top, 
                   left: item.left, 
@@ -208,7 +232,7 @@ export default function PolaroidSection() {
                   y: "-50%",
                   rotate: 0, 
                   zIndex: 50, 
-                  boxShadow: "0 20px 50px rgba(0,0,0,0.8)", 
+                  boxShadow: "0 20px 40px rgba(0,0,0,0.6)", // Sedikit dikurangi opasitas shadow agar render lebih ringan
                   transition: { type: "spring", stiffness: 300, damping: 20 }
                 }}
                 whileTap={{
@@ -220,15 +244,18 @@ export default function PolaroidSection() {
                   transition: { type: "spring", stiffness: 300, damping: 20 }
                 }}
               >
-                <div className="w-full h-full bg-white rounded-sm shadow-[0_15px_25px_rgba(0,0,0,0.7)] p-[5%] pb-[20%] flex flex-col border border-gray-200">
-                  <div className="w-full flex-grow bg-gray-200 overflow-hidden relative border border-gray-300/50 flex items-center justify-center">
-                    <img 
+                <div className="w-full h-full bg-white rounded-sm shadow-[0_10px_20px_rgba(0,0,0,0.5)] p-[5%] pb-[20%] flex flex-col border border-gray-200 transform-gpu">
+                  <div className="w-full grow bg-gray-200 overflow-hidden relative border border-gray-300/50 flex items-center justify-center">
+                    {/* PERBAIKAN: Gunakan Next Image agar 15 gambar ini tidak memenuhi RAM browser */}
+                    <Image 
                       src={item.src} 
                       alt={`Memory ${item.id}`} 
-                      className="w-full h-full object-cover"
-                      onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                      fill
+                      sizes="(max-width: 768px) 25vw, 15vw"
+                      className="object-cover"
+                      priority={item.id <= 5} // Prioritaskan 5 gambar pertama
                     />
-                    <span className="absolute text-gray-400 text-[8px] sm:text-[10px] md:text-xs font-semibold -z-10">
+                    <span className="absolute text-gray-400 text-[8px] sm:text-[10px] md:text-xs font-semibold z-0 mix-blend-multiply">
                       Foto {item.id}
                     </span>
                   </div>
@@ -245,7 +272,7 @@ export default function PolaroidSection() {
         className="absolute bottom-8 flex flex-col items-center gap-2 text-fuchsia-300/50 z-30"
       >
         <span className="text-[10px] md:text-xs tracking-widest uppercase">Tap on memories</span>
-        <div className="w-[1px] h-10 bg-gradient-to-b from-fuchsia-300/50 to-transparent" />
+        <div className="w-px h-10 bg-linear-to-b from-fuchsia-300/50 to-transparent" />
       </motion.div>
 
     </section>
