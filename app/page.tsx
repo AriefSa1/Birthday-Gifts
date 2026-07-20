@@ -12,6 +12,24 @@ import LatterSection from "./components/LatterSection";
 import ReasonsSection from "./components/ReasonsSection";
 import TimelineSection from "./components/TimelineSection";
 
+// Didefinisikan di luar Home agar identitas komponen stabil antar render
+// (di dalam Home, setiap perubahan state membuat ulang fungsi ini dan me-remount seluruh section).
+function SnapSection({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="snap-start snap-always w-full min-h-dvh flex flex-col items-center justify-center px-4 overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95, y: 50 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: false, amount: 0.3 }}
+        className="w-full flex items-center justify-center"
+      >
+        {children}
+      </motion.div>
+    </div>
+  );
+}
+
 export default function Home() {
   const [step, setStep] = useState(0);
   const [isCountdownFinished, setIsCountdownFinished] = useState(false);
@@ -36,24 +54,9 @@ export default function Home() {
     }
   }, [isCountdownFinished]);
 
-  // PERBAIKAN: Menambahkan flex, items-center, dan justify-center agar tepat di tengah
-  const SnapSection = ({ children }: { children: React.ReactNode }) => (
-    <div className="snap-start snap-always w-full min-h-dvh flex flex-col items-center justify-center px-4 overflow-hidden">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95, y: 50 }}
-        whileInView={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: false, amount: 0.3 }}
-        className="w-full flex items-center justify-center"
-      >
-        {children}
-      </motion.div>
-    </div>
-  );
-
   return (
     <main className="h-dvh w-screen flex flex-col items-center justify-center overflow-hidden relative z-10">
-      <audio ref={audioRef} src="/....mp3" loop />
+      <audio ref={audioRef} src="/lagu-romantis.wav" loop />
 
       <AnimatePresence mode="wait">
         
@@ -132,18 +135,8 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            className="absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden snap-y snap-mandatory scroll-smooth hide-scroll"
+            className="absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden snap-y snap-mandatory scroll-smooth hide-scrollbar"
           >
-            <style>{`
-              .hide-scroll::-webkit-scrollbar {
-                display: none;
-              }
-              .hide-scroll {
-                -ms-overflow-style: none;
-                scrollbar-width: none;
-              }
-            `}</style>
-
             <SnapSection>
               <PolaroidSection />
             </SnapSection>

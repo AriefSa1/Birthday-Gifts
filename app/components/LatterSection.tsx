@@ -79,7 +79,7 @@ export default function SideContent() {
               <p className="text-xs tracking-wider uppercase">[ Fotonya Ilang ]</p>
             </div>
           </div>
-          <p className="text-sm italic text-pink-200/70">"Sebab dalam setiap foto, waktu berhenti untuk mengabadikan kebahagiaan kita."</p>
+          <p className="text-sm italic text-pink-200/70">&ldquo;Sebab dalam setiap foto, waktu berhenti untuk mengabadikan kebahagiaan kita.&rdquo;</p>
         </div>
       )
     },
@@ -148,7 +148,7 @@ export default function SideContent() {
             animate="visible"
             exit="exit"
             variants={pageTransition}
-            className="w-full bg-purple-550/75 border border-purple-300/30 backdrop-blur-2xl p-6 md:p-10 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5),_0_0_40px_rgba(244,114,182,0.05)] text-left relative overflow-hidden"
+            className="w-full bg-purple-500/75 border border-purple-300/30 backdrop-blur-2xl p-6 md:p-10 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5),_0_0_40px_rgba(244,114,182,0.05)] text-left relative overflow-hidden"
           >
             <div className="absolute -top-10 -right-10 w-32 h-32 bg-pink-500/10 rounded-full blur-2xl pointer-events-none" />
             <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-rose-500/10 rounded-full blur-2xl pointer-events-none" />
@@ -211,20 +211,6 @@ export default function SideContent() {
           )}
         </button>
       </div>
-
-      <style jsx global>{`
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: rgba(255, 255, 255, 0.02);
-          border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: rgba(244, 114, 182, 0.25);
-          border-radius: 10px;
-        }
-      `}</style>
     </div>
   );
 }

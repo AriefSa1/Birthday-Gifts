@@ -81,7 +81,7 @@ export default function ReasonsSection() {
             
             {/* Teks Alasan */}
             <p className="text-white/90 text-lg md:text-xl font-light leading-relaxed relative z-10 italic">
-              "{reason}"
+              &ldquo;{reason}&rdquo;
             </p>
 
             {/* Aksen Garis Gradien di Bawah */}

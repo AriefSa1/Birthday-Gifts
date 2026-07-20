@@ -13,7 +13,7 @@ export default function GiftBox({ onOpen }: { onOpen: () => void }) {
         transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
         className="relative"
       >
-        <div className="w-32 h-32 md:w-40 md:h-40 bg-pink-550/30 border-2 border-pink-400/40 rounded-2xl flex items-center justify-center shadow-[0_0_30px_rgba(236,72,153,0.3)] backdrop-blur-sm">
+        <div className="w-32 h-32 md:w-40 md:h-40 bg-pink-500/30 border-2 border-pink-400/40 rounded-2xl flex items-center justify-center shadow-[0_0_30px_rgba(236,72,153,0.3)] backdrop-blur-sm">
           <Gift size={64} className="text-pink-200" strokeWidth={1.5} />
         </div>
       </motion.div>

@@ -171,8 +171,7 @@ export default function StarBackground() {
       ctx.restore();
     };
 
-    // PERBAIKAN 1: Tambahkan parameter shadow ke fungsi drawHeart
-    const drawHeart = (ctx: CanvasRenderingContext2D, x: number, y: number, size: number, color: string, glowColor: string, blur: number) => {
+    const drawHeart = (ctx: CanvasRenderingContext2D, x: number, y: number, size: number, color: string) => {
       ctx.beginPath();
       ctx.moveTo(x, y + size / 4);
       ctx.quadraticCurveTo(x, y, x + size / 2, y);
@@ -252,16 +251,13 @@ export default function StarBackground() {
 
         let drawX = (p.x + offsetX) % canvas.width;
         if (drawX < 0) drawX += canvas.width;
-        let drawY = p.y + offsetY;
+        const drawY = p.y + offsetY;
 
         ctx.save();
-        
+
         // PERBAIKAN 2: Hilangkan ctx.filter = `blur(...)` yang bikin lag
         const fillColor = `rgba(${p.color}, ${p.opacity})`;
-        const glowColor = `rgba(${p.color}, ${p.opacity * 1.5})`; // Warna shadow sedikit lebih terang
-        
-        // Operkan pengaturan shadow langsung ke fungsi drawHeart
-        drawHeart(ctx, drawX, drawY, p.size, fillColor, glowColor, p.blur);
+        drawHeart(ctx, drawX, drawY, p.size, fillColor);
         
         ctx.restore(); 
       });
@@ -327,8 +323,8 @@ export default function StarBackground() {
 
     const handleDeviceOrientation = (e: DeviceOrientationEvent) => {
       if (e.gamma !== null && e.beta !== null) {
-        let normalizedX = e.gamma / 45; 
-        let normalizedY = (e.beta - 45) / 45; 
+        const normalizedX = e.gamma / 45;
+        const normalizedY = (e.beta - 45) / 45;
 
         targetX = Math.max(-1, Math.min(1, normalizedX));
         targetY = Math.max(-1, Math.min(1, normalizedY));
@@ -338,9 +334,22 @@ export default function StarBackground() {
     window.addEventListener("resize", resizeCanvas);
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("touchmove", handleTouchMove);
-    
-    if (typeof (DeviceOrientationEvent as any).requestPermission === 'function') {
-      window.addEventListener("deviceorientation", handleDeviceOrientation);
+
+    // iOS 13+ Safari mewajibkan izin eksplisit sebelum event deviceorientation bisa didengarkan
+    const iosRequestPermission = (
+      DeviceOrientationEvent as unknown as {
+        requestPermission?: () => Promise<"granted" | "denied">;
+      }
+    ).requestPermission;
+
+    if (typeof iosRequestPermission === "function") {
+      iosRequestPermission()
+        .then((state) => {
+          if (state === "granted") {
+            window.addEventListener("deviceorientation", handleDeviceOrientation);
+          }
+        })
+        .catch(() => {});
     } else {
       window.addEventListener("deviceorientation", handleDeviceOrientation);
     }

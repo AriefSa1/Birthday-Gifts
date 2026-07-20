@@ -10,14 +10,11 @@ export default function Countdown({
   targetDate: string; 
   onComplete?: () => void;
 }) {
-  const [isMounted, setIsMounted] = useState(false);
-  const [timeLeft, setTimeLeft] = useState({ Hari: 0, Jam: 0, Menit: 0, Detik: 0 });
-  
+  const [timeLeft, setTimeLeft] = useState<{ Hari: number; Jam: number; Menit: number; Detik: number } | null>(null);
+
   const hasCompleted = useRef(false);
 
   useEffect(() => {
-    setIsMounted(true);
-
     const hitungWaktu = () => {
       const tanggalAman = targetDate.replace(/-/g, '/').replace('T', ' ');
       const target = new Date(tanggalAman).getTime();
@@ -46,7 +43,7 @@ export default function Countdown({
     return () => clearInterval(interval);
   }, [targetDate, onComplete]);
 
-  if (!isMounted) return null; 
+  if (!timeLeft) return null;
 
   return (
     <div className="flex gap-4 md:gap-6 justify-center">
@@ -54,7 +51,7 @@ export default function Countdown({
         <div key={unit} className="flex flex-col items-center">
           
           {/* KOTAK KACA KOSMIK DENGAN EFEK PERSPECTIVE UNTUK 3D FLIP */}
-          <div className="w-16 h-20 md:w-20 md:h-24 bg-purple-550/30 border border-fuchsia-300/20 backdrop-blur-md rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(147,51,234,0.15)] mb-3 relative overflow-hidden [perspective:1000px]">
+          <div className="w-16 h-20 md:w-20 md:h-24 bg-purple-500/30 border border-fuchsia-300/20 backdrop-blur-md rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(147,51,234,0.15)] mb-3 relative overflow-hidden [perspective:1000px]">
             
             {/* Pantulan Cahaya (Highlight) di atas kotak */}
             <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-fuchsia-200/40 to-transparent z-10" />

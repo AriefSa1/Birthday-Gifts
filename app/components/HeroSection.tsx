@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import Image from "next/image";
 
 export default function HeroCelebration({ onStart }: { onStart?: () => void }) {
   const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
@@ -59,7 +60,13 @@ export default function HeroCelebration({ onStart }: { onStart?: () => void }) {
               <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
                 <p className="text-white text-xs font-medium tracking-widest drop-shadow-md">ZOOM</p>
               </div>
-              <img src={item.src} alt="Memory" className="w-full h-full object-cover" />
+              <Image
+                src={item.src}
+                alt="Memory"
+                fill
+                sizes="144px"
+                className="object-cover"
+              />
             </div>
           </motion.div>
         ))}
@@ -78,7 +85,13 @@ export default function HeroCelebration({ onStart }: { onStart?: () => void }) {
               <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
                 <p className="text-white text-xs font-medium tracking-widest drop-shadow-md">ZOOM</p>
               </div>
-              <img src={item.src} alt="Memory" className="w-full h-full object-cover" />
+              <Image
+                src={item.src}
+                alt="Memory"
+                fill
+                sizes="144px"
+                className="object-cover"
+              />
             </div>
           </motion.div>
         ))}
@@ -106,7 +119,7 @@ export default function HeroCelebration({ onStart }: { onStart?: () => void }) {
         <div className="pt-6 relative z-20 pointer-events-auto">
           <button 
             onClick={onStart}
-            className="px-8 py-3 rounded-full border border-fuchsia-300/40 bg-purple-550/30 text-xs md:text-sm text-pink-200 tracking-[0.2em] uppercase hover:bg-fuchsia-550/30 backdrop-blur-md transition-all duration-300 gap-3 text-sm tracking-widest uppercase text-white shadow-[0_0_20px_rgba(217,70,239,0.4)] hover:shadow-[0_0_30px_rgba(217,70,239,0.6)]"
+            className="px-8 py-3 rounded-full border border-fuchsia-300/40 bg-purple-500/30 text-xs md:text-sm text-pink-200 tracking-[0.2em] uppercase hover:bg-fuchsia-500/30 backdrop-blur-md transition-all duration-300 gap-3 text-sm tracking-widest uppercase text-white shadow-[0_0_20px_rgba(217,70,239,0.4)] hover:shadow-[0_0_30px_rgba(217,70,239,0.6)]"
           >
             ✦ Read My Letter ✦
           </button>
@@ -136,7 +149,13 @@ export default function HeroCelebration({ onStart }: { onStart?: () => void }) {
           >
             <div className="w-full aspect-square bg-gray-100 overflow-hidden relative group">
               <div className="absolute inset-0 bg-black/20 opacity-0 active:opacity-100 transition-opacity duration-300 z-10" />
-              <img src={item.src} alt="Memory Mobile" className="w-full h-full object-cover" />
+              <Image
+                src={item.src}
+                alt="Memory Mobile"
+                fill
+                sizes="96px"
+                className="object-cover"
+              />
             </div>
           </motion.div>
         ))}
@@ -161,10 +180,11 @@ export default function HeroCelebration({ onStart }: { onStart?: () => void }) {
               onClick={(e) => e.stopPropagation()}
               className="relative max-w-4xl w-full max-h-[85vh] flex items-center justify-center cursor-default"
             >
-              <img 
-                src={selectedPhoto} 
-                alt="Zoomed Memory" 
-                className="max-w-full max-h-[85vh] object-contain rounded-xl shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-white/10" 
+              {/* eslint-disable-next-line @next/next/no-img-element -- ukuran asli tidak diketahui (foto eksternal berbeda-beda), kontainer bergantung pada intrinsic size gambar untuk menentukan tinggi modal */}
+              <img
+                src={selectedPhoto}
+                alt="Zoomed Memory"
+                className="max-w-full max-h-[85vh] object-contain rounded-xl shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-white/10"
               />
               
               {/* PERBAIKAN: Logika pencarian moment yang lebih bersih & aman */}

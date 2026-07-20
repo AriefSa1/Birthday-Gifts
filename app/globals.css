@@ -39,3 +39,19 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* 3. Scrollbar Tipis Bertema Pink (dipakai di panel Galeri & Surat) */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(244, 114, 182, 0.2);
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(244, 114, 182, 0.35);
+}

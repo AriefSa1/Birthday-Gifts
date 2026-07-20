@@ -51,7 +51,7 @@ export default function SurpriseSection() {
               Harapan Tersimpan!
             </h3>
             <p className="text-white/80 text-sm md:text-base leading-relaxed">
-              " {wish} "
+              &ldquo;{wish}&rdquo;
             </p>
             <div className="mt-8 pt-6 border-t border-white/20">
               <p className="text-pink-300 font-medium">

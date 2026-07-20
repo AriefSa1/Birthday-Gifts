@@ -115,14 +115,14 @@ export default function PolaroidSection() {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1, delay: 0.5 }}
-        className="absolute left-6 lg:left-12 xl:left-24 top-1/2 -translate-y-1/2 w-64 lg:w-72 hidden md:flex flex-col gap-4 p-6 bg-purple-550/30 backdrop-blur-md border border-fuchsia-300/20 rounded-2xl shadow-[0_0_30px_rgba(217,70,239,0.15)] z-30"
+        className="absolute left-6 lg:left-12 xl:left-24 top-1/2 -translate-y-1/2 w-64 lg:w-72 hidden md:flex flex-col gap-4 p-6 bg-purple-500/30 backdrop-blur-md border border-fuchsia-300/20 rounded-2xl shadow-[0_0_30px_rgba(217,70,239,0.15)] z-30"
       >
         <div className="flex items-center gap-2 mb-2">
           <span className="text-xl">✨</span>
           <h3 className="text-fuchsia-100 font-serif text-xl italic tracking-wide">Pesan Kosmik</h3>
         </div>
         <p className="text-sm text-purple-100/80 font-light leading-relaxed drop-shadow-sm">
-          "Seperti bintang di galaksi yang tak terhitung jumlahnya, begitu juga kenangan yang kita buat. Setiap detiknya sangat berharga, dan aku ingin menyimpannya di sini selamanya."
+          &ldquo;Seperti bintang di galaksi yang tak terhitung jumlahnya, begitu juga kenangan yang kita buat. Setiap detiknya sangat berharga, dan aku ingin menyimpannya di sini selamanya.&rdquo;
         </p>
         <div className="w-full h-px bg-linear-to-r from-fuchsia-400/50 to-transparent mt-2" />
         <p className="text-[10px] text-fuchsia-300/60 tracking-widest uppercase">Chapter 1 • Kenangan</p>
@@ -136,7 +136,7 @@ export default function PolaroidSection() {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1, delay: 0.7 }}
-        className="absolute right-6 lg:right-12 xl:right-24 top-1/2 -translate-y-1/2 w-64 lg:w-72 hidden md:flex flex-col gap-4 p-6 bg-purple-550/30 backdrop-blur-md border border-fuchsia-300/20 rounded-2xl shadow-[0_0_30px_rgba(217,70,239,0.15)] z-30"
+        className="absolute right-6 lg:right-12 xl:right-24 top-1/2 -translate-y-1/2 w-64 lg:w-72 hidden md:flex flex-col gap-4 p-6 bg-purple-500/30 backdrop-blur-md border border-fuchsia-300/20 rounded-2xl shadow-[0_0_30px_rgba(217,70,239,0.15)] z-30"
       >
         {/* Widget Musik */}
         <div className="flex items-center gap-4 bg-black/20 p-3 rounded-xl border border-white/5">
@@ -190,7 +190,7 @@ export default function PolaroidSection() {
           A Glimpse of Us
         </h2>
         <p className="mt-4 text-sm font-light italic text-purple-200/70 drop-shadow-md">
-          "Setiap sudut waktu yang berhenti, khusus untukmu."
+          &ldquo;Setiap sudut waktu yang berhenti, khusus untukmu.&rdquo;
         </p>
       </motion.div>
 
