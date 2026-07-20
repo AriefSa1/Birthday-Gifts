@@ -46,7 +46,7 @@ export default function ReasonsSection() {
         <p className="text-xs tracking-[0.4em] uppercase text-pink-300/80 mb-3 drop-shadow-[0_0_8px_rgba(244,114,182,0.4)]">
           Why I Love You
         </p>
-        <h2 className="font-serif text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-pink-100 to-purple-300 drop-shadow-md">
+        <h2 className="font-serif text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-linear-to-r from-white via-pink-100 to-purple-300 drop-shadow-md">
           Things I Admire About You
         </h2>
       </motion.div>
@@ -64,10 +64,10 @@ export default function ReasonsSection() {
             key={index} 
             variants={itemVariants}
             whileHover={{ y: -4, scale: 1.01, transition: { duration: 0.2 } }}
-            className="group relative bg-white/[0.03] backdrop-blur-lg border border-white/10 p-8 md:p-10 rounded-[2rem] shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:border-pink-400/40 hover:bg-white/[0.06] hover:shadow-[0_15px_40px_rgba(244,114,182,0.15)] transition-all duration-500 transform-gpu cursor-default overflow-hidden"
+            className="group relative bg-white/3 backdrop-blur-lg border border-white/10 p-8 md:p-10 rounded-4xl shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:border-pink-400/40 hover:bg-white/6 hover:shadow-[0_15px_40px_rgba(244,114,182,0.15)] transition-all duration-500 transform-gpu cursor-default overflow-hidden"
           >
             {/* Watermark Angka Besar Dramatis di Background */}
-            <div className="absolute -top-4 -right-2 text-[8rem] font-serif font-bold text-white/[0.02] pointer-events-none group-hover:text-pink-400/[0.05] group-hover:-translate-x-2 transition-all duration-700 select-none">
+            <div className="absolute -top-4 -right-2 text-[8rem] font-serif font-bold text-white/2 pointer-events-none group-hover:text-pink-400/5 group-hover:-translate-x-2 transition-all duration-700 select-none">
               {index + 1}
             </div>
 
@@ -85,7 +85,7 @@ export default function ReasonsSection() {
             </p>
 
             {/* Aksen Garis Gradien di Bawah */}
-            <div className="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-pink-400 to-purple-500 group-hover:w-full transition-all duration-700 ease-out" />
+            <div className="absolute bottom-0 left-0 h-1 w-0 bg-linear-to-r from-pink-400 to-purple-500 group-hover:w-full transition-all duration-700 ease-out" />
           </motion.div>
         ))}
       </motion.div>
