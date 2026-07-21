@@ -13,8 +13,10 @@ export async function GET(request: NextRequest) {
     const data = await getSectionData(section);
     return NextResponse.json({ data });
   } catch (err) {
-    console.error("Gagal mengambil state:", describeDbError(err));
-    return NextResponse.json({ data: null });
+    const debug = describeDbError(err);
+    console.error("Gagal mengambil state:", debug);
+    // TODO: hapus field `debug` ini setelah selesai diagnosa koneksi DB di production
+    return NextResponse.json({ data: null, debug });
   }
 }
 
@@ -29,7 +31,9 @@ export async function POST(request: NextRequest) {
     await saveSectionData(section, body.data);
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error("Gagal menyimpan state:", describeDbError(err));
-    return NextResponse.json({ error: "Gagal menyimpan" }, { status: 500 });
+    const debug = describeDbError(err);
+    console.error("Gagal menyimpan state:", debug);
+    // TODO: hapus field `debug` ini setelah selesai diagnosa koneksi DB di production
+    return NextResponse.json({ error: "Gagal menyimpan", debug }, { status: 500 });
   }
 }
