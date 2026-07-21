@@ -35,7 +35,7 @@ export default function TimelineSection() {
       <motion.div 
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         className="text-center mb-20 relative z-10"
       >
         <p className="text-xs tracking-[0.5em] uppercase text-pink-300/60 mb-3 flex items-center justify-center gap-2">
@@ -57,7 +57,7 @@ export default function TimelineSection() {
               <motion.div 
                 initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: false, margin: "-100px" }}
                 transition={{ duration: 0.8, ease: [0.215, 0.610, 0.355, 1.000] }}
                 className={`flex flex-col md:flex-row items-center justify-between ${
                   index % 2 === 0 ? "md:flex-row-reverse" : ""
@@ -68,6 +68,7 @@ export default function TimelineSection() {
                   <motion.div 
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
+                    viewport={{ once: false }}
                     transition={{ delay: 0.5, type: "spring" }}
                     className="w-full h-full bg-pink-500 rounded-full border-4 border-[#0b060a] shadow-[0_0_15px_rgba(236,72,153,0.6)] relative"
                   >
