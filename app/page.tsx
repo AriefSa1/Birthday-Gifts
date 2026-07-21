@@ -82,7 +82,8 @@ export default function Home() {
               Sesuatu yang indah sedang menunggu untukmu 🤍
             </p>
             
-            <Countdown targetDate="2026-06-31T00:00:00" onComplete={() => setIsCountdownFinished(true)} />
+            {/* TODO: ganti ke tanggal ulang tahun asli, format "YYYY-MM-DDTHH:mm:ss" */}
+            <Countdown targetDate="2026-07-21T09:21:14" onComplete={() => setIsCountdownFinished(true)} />
             
             <p className="mt-10 text-xs text-purple-300/40 mb-2 tracking-[0.5em]">
               ✧ ✧ ✧
