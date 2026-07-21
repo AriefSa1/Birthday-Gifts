@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { resetAllSections } from "@/app/lib/db";
+import { resetAllSections, describeDbError } from "@/app/lib/db";
 
 export async function POST(request: NextRequest) {
   if (!process.env.ADMIN_RESET_PASSWORD) {
@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
     await resetAllSections();
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error("Gagal reset state:", err);
+    console.error("Gagal reset state:", describeDbError(err));
     return NextResponse.json({ error: "Gagal reset" }, { status: 500 });
   }
 }

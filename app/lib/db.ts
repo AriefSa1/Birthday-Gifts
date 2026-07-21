@@ -50,3 +50,14 @@ export async function resetAllSections() {
   await ensureTable();
   await getPool().query("DELETE FROM answers");
 }
+
+export function describeDbError(err: unknown): string {
+  if (err instanceof AggregateError) {
+    return err.errors.map((e) => describeDbError(e)).join("; ");
+  }
+  if (err instanceof Error) {
+    const code = (err as NodeJS.ErrnoException).code;
+    return code ? `${code}: ${err.message}` : err.message;
+  }
+  return String(err);
+}
