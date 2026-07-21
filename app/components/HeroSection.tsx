@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import Image from "next/image";
+import Button from "./ui/Button";
 
 export default function HeroCelebration({ onStart }: { onStart?: () => void }) {
   const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
@@ -117,12 +118,11 @@ export default function HeroCelebration({ onStart }: { onStart?: () => void }) {
         </p>
 
         <div className="pt-6 relative z-20 pointer-events-auto">
-          <button 
+          <Button 
             onClick={onStart}
-            className="px-8 py-3 rounded-full border border-white/10 bg-purple-900/10 text-xs md:text-sm text-pink-200 tracking-[0.2em] uppercase hover:bg-purple-900/20 backdrop-blur-xl transition-all duration-300 shadow-xl"
           >
             ✦ Read My Letter ✦
-          </button>
+          </Button>
           <p className="text-center pt-4 text-xs text-pink-200/40 font-light italic tracking-wider">
             Click Tombolnya, Baca Surat Untukmu 🤍
           </p>

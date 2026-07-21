@@ -10,6 +10,7 @@ import {
   type MotionStyle,
 } from "framer-motion";
 import Countdown from "./components/Countdown";
+import BirthdayGreetingSection from "./components/BirthdayGreetingSection";
 import GiftBox from "./components/GiftBox";
 import PolaroidSection from "./components/PolaroidSection";
 import SurpriseSection from "./components/SurpriseSection";
@@ -21,6 +22,7 @@ import TimelineSection from "./components/TimelineSection";
 import WishGeneratorSection from "./components/WishGeneratorSection";
 import QuizSection from "./components/QuizSection";
 import BucketListSection from "./components/BucketListSection";
+import MoodEnvelopeSection from "./components/MoodEnvelopeSection";
 
 // Didefinisikan di luar Home agar identitas komponen stabil antar render
 // (di dalam Home, setiap perubahan state membuat ulang fungsi ini dan me-remount seluruh section).
@@ -108,9 +110,9 @@ export default function Home() {
   const [isCountdownFinished, setIsCountdownFinished] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  // Auto-play musik saat mencapai step 3
+  // Auto-play musik saat mencapai step 4 (konten utama)
   useEffect(() => {
-    if (step === 3 && audioRef.current) {
+    if (step === 4 && audioRef.current) {
       audioRef.current.play().catch((error) => {
         console.log("Autoplay dicegah oleh browser. Pengguna harus berinteraksi dulu dengan halaman.", error);
       });
@@ -129,7 +131,7 @@ export default function Home() {
 
   return (
     <main className="h-dvh w-screen flex flex-col items-center justify-center overflow-hidden relative z-10">
-      <audio ref={audioRef} src="/lagu-romantis.wav" loop />
+      <audio ref={audioRef} src="/lagu-romantis1.wav" loop />
 
       <AnimatePresence mode="wait">
         
@@ -172,8 +174,23 @@ export default function Home() {
           </motion.div>
         )}
 
-        {/* LAYAR 2: KOTAK KADO */}
+        {/* LAYAR 2: SAMBUTAN ULANG TAHUN + KEMBANG API */}
         {step === 1 && (
+          <motion.div
+            key="layar-sambutan"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            className="w-full h-full flex items-center justify-center"
+          >
+            {/* TODO: ganti "Nama" dengan nama penerima asli */}
+            <BirthdayGreetingSection name="Nama" onContinue={() => setStep(2)} />
+          </motion.div>
+        )}
+
+        {/* LAYAR 3: KOTAK KADO */}
+        {step === 2 && (
           <motion.div
             key="layar2"
             initial={{ opacity: 0, scale: 0.8 }}
@@ -182,12 +199,12 @@ export default function Home() {
             transition={{ duration: 1 }}
             className="flex flex-col items-center justify-center text-center w-full h-full"
           >
-            <GiftBox onOpen={() => setStep(2)} />
+            <GiftBox onOpen={() => setStep(3)} />
           </motion.div>
         )}
 
-        {/* LAYAR 3: SELEBRASI AWAL (HERO SECTION) */}
-        {step === 2 && (
+        {/* LAYAR 4: SELEBRASI AWAL (HERO SECTION) */}
+        {step === 3 && (
           <motion.div
             key="layar3"
             initial={{ opacity: 0, y: 50 }}
@@ -196,14 +213,14 @@ export default function Home() {
             // Menambahkan flex layout agar konten di dalam hero section berada di tengah
             className="w-full h-full flex items-center justify-center"
           >
-            <HeroSection onStart={() => setStep(3)} />
+            <HeroSection onStart={() => setStep(4)} />
           </motion.div>
         )}
 
         {/* ======================================================== */}
-        {/* LAYAR 4 (STEP 3): KONTEN UTAMA DENGAN SCROLL SNAP MAGNET */}
+        {/* LAYAR 5 (STEP 4): KONTEN UTAMA DENGAN SCROLL SNAP MAGNET */}
         {/* ======================================================== */}
-        {step === 3 && (
+        {step === 4 && (
           <motion.div
             key="layar4"
             initial={{ opacity: 0 }}
@@ -241,6 +258,10 @@ export default function Home() {
 
             <SnapSection variant="fadeUp">
               <BucketListSection />
+            </SnapSection>
+
+            <SnapSection variant="slideLeft">
+              <MoodEnvelopeSection />
             </SnapSection>
 
             <SnapSection variant="flipUp">
