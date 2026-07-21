@@ -2,6 +2,11 @@
 
 import { motion } from "framer-motion";
 import { useSectionState } from "../lib/useSectionState";
+import Card from "./ui/Card";
+import SectionHeading from "./ui/SectionHeading";
+import ProgressBar from "./ui/ProgressBar";
+
+const MotionCard = motion.create(Card);
 
 type Question = {
   question: string;
@@ -56,17 +61,12 @@ export default function QuizSection() {
 
   return (
     <div className="flex flex-col items-center text-center px-4 max-w-lg w-full">
-      <p className="text-xs tracking-[0.3em] uppercase text-fuchsia-300/90 mb-3 drop-shadow-[0_0_8px_rgba(217,70,239,0.5)]">
-        ✧ Seberapa Kenal Kamu ✧
-      </p>
-      <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-transparent bg-clip-text bg-linear-to-br from-white via-pink-100 to-purple-400 drop-shadow-[0_0_20px_rgba(233,213,255,0.4)]">
-        Love Quiz
-      </h2>
+      <SectionHeading eyebrow="✧ Seberapa Kenal Kamu ✧" title="Love Quiz" className="mb-6" />
 
       {!loaded ? (
         <p className="text-sm text-purple-300/60">Memuat...</p>
       ) : isDone ? (
-        <div className="bg-purple-500/10 border border-fuchsia-300/20 backdrop-blur-md rounded-2xl px-6 py-8">
+        <Card size="lg">
           <p className="text-lg text-pink-100 mb-2">
             Skor kamu: {correctCount} / {QUESTIONS.length}
           </p>
@@ -75,18 +75,18 @@ export default function QuizSection() {
               ? "Sempurna, kamu emang paling kenal aku."
               : "Makasih udah nyoba jawab semuanya."}
           </p>
-        </div>
+        </Card>
       ) : (
         <div className="w-full flex flex-col gap-5">
           {QUESTIONS.slice(0, answeredCount + 1).map((q, qIndex) => {
             const selected = answers[qIndex];
             const isAnswered = selected !== undefined;
             return (
-              <motion.div
+              <MotionCard
                 key={qIndex}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-purple-500/10 border border-fuchsia-300/20 backdrop-blur-md rounded-xl p-4 text-left"
+                className="text-left"
               >
                 <p className="text-[10px] uppercase tracking-widest text-purple-300/60 mb-2">
                   Pertanyaan {qIndex + 1} dari {QUESTIONS.length}
@@ -116,18 +116,13 @@ export default function QuizSection() {
                     );
                   })}
                 </div>
-              </motion.div>
+              </MotionCard>
             );
           })}
         </div>
       )}
 
-      <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden mt-6">
-        <div
-          className="h-full bg-linear-to-r from-fuchsia-400 to-purple-400 transition-all duration-500"
-          style={{ width: `${(answeredCount / QUESTIONS.length) * 100}%` }}
-        />
-      </div>
+      <ProgressBar value={(answeredCount / QUESTIONS.length) * 100} className="mt-6" />
     </div>
   );
 }

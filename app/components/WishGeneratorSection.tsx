@@ -3,6 +3,11 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSectionState } from "../lib/useSectionState";
+import Card from "./ui/Card";
+import Button from "./ui/Button";
+import SectionHeading from "./ui/SectionHeading";
+
+const MotionCard = motion.create(Card);
 
 const WISH_POOL = [
   "Semoga harimu secerah senyummu hari ini.",
@@ -41,39 +46,31 @@ export default function WishGeneratorSection() {
 
   return (
     <div className="flex flex-col items-center text-center px-4 max-w-md">
-      <p className="text-xs tracking-[0.3em] uppercase text-fuchsia-300/90 mb-3 drop-shadow-[0_0_8px_rgba(217,70,239,0.5)]">
-        ✧ Doa Hari Ini ✧
-      </p>
-      <h2 className="font-serif text-3xl md:text-4xl font-bold mb-8 text-transparent bg-clip-text bg-linear-to-br from-white via-pink-100 to-purple-400 drop-shadow-[0_0_20px_rgba(233,213,255,0.4)]">
-        Tarik Satu Kartu
-      </h2>
+      <SectionHeading eyebrow="✧ Doa Hari Ini ✧" title="Tarik Satu Kartu" className="mb-8" />
 
       <div className="relative w-56 h-36 mb-8 [perspective:1000px]">
         <AnimatePresence mode="wait">
-          <motion.div
+          <MotionCard
             key={data?.message ?? "empty"}
+            tone="strong"
             initial={{ rotateY: 90, opacity: 0 }}
             animate={{ rotateY: 0, opacity: 1 }}
             exit={{ rotateY: -90, opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="absolute inset-0 bg-purple-500/20 border border-fuchsia-300/30 backdrop-blur-md rounded-xl flex items-center justify-center p-5 shadow-[0_0_25px_rgba(147,51,234,0.15)]"
+            className="absolute inset-0 flex items-center justify-center shadow-[0_0_25px_rgba(147,51,234,0.15)]"
           >
             <p className="text-sm md:text-base text-pink-50 italic leading-relaxed">
               {!loaded
                 ? "Memuat..."
                 : data?.message ?? "Belum ada kartu yang ditarik."}
             </p>
-          </motion.div>
+          </MotionCard>
         </AnimatePresence>
       </div>
 
-      <button
-        onClick={drawWish}
-        disabled={isDrawing || !loaded}
-        className="px-8 py-3 rounded-full border border-fuchsia-300/30 bg-purple-900/20 text-xs md:text-sm text-pink-200 tracking-[0.2em] uppercase hover:bg-purple-900/30 backdrop-blur-xl transition-all duration-300 disabled:opacity-50"
-      >
+      <Button onClick={drawWish} disabled={isDrawing || !loaded}>
         {data ? "Tarik Kartu Lagi" : "Tarik Kartu"}
-      </button>
+      </Button>
     </div>
   );
 }
