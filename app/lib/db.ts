@@ -34,14 +34,19 @@ export async function getSectionData(section: string): Promise<unknown> {
     [section]
   );
   const row = (rows as { data: unknown }[])[0];
-  return row ? row.data : null;
+  if (!row) return null;
+  // MySQL's native JSON columns are auto-parsed by mysql2, but MariaDB's
+  // JSON (a LONGTEXT alias) comes back as a raw string, so handle both.
+  return typeof row.data === "string" ? JSON.parse(row.data) : row.data;
 }
 
 export async function saveSectionData(section: string, data: unknown) {
   await ensureTable();
   const json = JSON.stringify(data);
+  // MariaDB's JSON type is a LONGTEXT alias and doesn't support CAST(... AS JSON)
+  // (that's MySQL-only syntax), so the JSON string is bound directly here.
   await getPool().query(
-    "INSERT INTO answers (section, data) VALUES (?, CAST(? AS JSON)) ON DUPLICATE KEY UPDATE data = CAST(? AS JSON)",
+    "INSERT INTO answers (section, data) VALUES (?, ?) ON DUPLICATE KEY UPDATE data = ?",
     [section, json, json]
   );
 }
