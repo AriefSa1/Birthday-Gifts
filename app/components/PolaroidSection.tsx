@@ -115,7 +115,7 @@ export default function PolaroidSection() {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1, delay: 0.5 }}
-        className="absolute left-6 lg:left-12 xl:left-24 top-1/2 -translate-y-1/2 w-64 lg:w-72 hidden md:flex flex-col gap-4 p-6 bg-purple-500/30 backdrop-blur-md border border-fuchsia-300/20 rounded-2xl shadow-[0_0_30px_rgba(217,70,239,0.15)] z-30"
+        className="absolute left-6 lg:left-12 xl:left-24 top-1/2 -translate-y-1/2 w-64 lg:w-72 hidden md:flex flex-col gap-4 p-6 bg-purple-900/10 backdrop-blur-xl border border-white/10 rounded-4xl shadow-xl z-30 transform-gpu"
       >
         <div className="flex items-center gap-2 mb-2">
           <span className="text-xl">✨</span>
@@ -136,7 +136,7 @@ export default function PolaroidSection() {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1, delay: 0.7 }}
-        className="absolute right-6 lg:right-12 xl:right-24 top-1/2 -translate-y-1/2 w-64 lg:w-72 hidden md:flex flex-col gap-4 p-6 bg-purple-500/30 backdrop-blur-md border border-fuchsia-300/20 rounded-2xl shadow-[0_0_30px_rgba(217,70,239,0.15)] z-30"
+        className="absolute right-6 lg:right-12 xl:right-24 top-1/2 -translate-y-1/2 w-64 lg:w-72 hidden md:flex flex-col gap-4 p-6 bg-purple-900/10 backdrop-blur-xl border border-white/10 rounded-4xl shadow-xl z-30 transform-gpu"
       >
         {/* Widget Musik */}
         <div className="flex items-center gap-4 bg-black/20 p-3 rounded-xl border border-white/5">

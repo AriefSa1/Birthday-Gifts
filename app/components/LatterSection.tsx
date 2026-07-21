@@ -148,7 +148,7 @@ export default function SideContent() {
             animate="visible"
             exit="exit"
             variants={pageTransition}
-            className="w-full bg-purple-500/75 border border-purple-300/30 backdrop-blur-2xl p-6 md:p-10 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5),_0_0_40px_rgba(244,114,182,0.05)] text-left relative overflow-hidden"
+            className="w-full bg-purple-900/10 backdrop-blur-xl border border-white/10 p-6 md:p-8 rounded-4xl shadow-xl text-left relative overflow-hidden transform-gpu"
           >
             <div className="absolute -top-10 -right-10 w-32 h-32 bg-pink-500/10 rounded-full blur-2xl pointer-events-none" />
             <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-rose-500/10 rounded-full blur-2xl pointer-events-none" />
@@ -174,10 +174,10 @@ export default function SideContent() {
         <button 
           onClick={handlePrev}
           disabled={currentIndex === 0}
-          className={`px-4 md:px-5 py-2.5 md:py-2.5 rounded-full border border-pink-400/20 text-[10px] md:text-xs font-bold tracking-widest uppercase inline-flex items-center gap-1.5 md:gap-2 bg-white/[0.03] backdrop-blur-md transition-all duration-300 ${
-            currentIndex === 0 
-              ? "opacity-10 cursor-not-allowed border-transparent text-white/20" 
-              : "text-pink-200 hover:bg-pink-500/10 hover:border-pink-400/40 active:scale-95 shadow-[0_4px_12px_rgba(0,0,0,0.1)]"
+          className={`px-4 md:px-5 py-2.5 md:py-2.5 rounded-full border border-white/10 text-[10px] md:text-xs font-bold tracking-widest uppercase inline-flex items-center gap-1.5 md:gap-2 bg-purple-900/10 backdrop-blur-xl shadow-xl transition-all duration-300 ${
+            currentIndex === 0
+              ? "opacity-10 cursor-not-allowed border-transparent text-white/20"
+              : "text-pink-200 hover:bg-purple-900/20 active:scale-95"
           }`}
         >
           <ChevronLeft size={14} className={currentIndex === 0 ? "text-white/20" : "text-pink-400"} /> Prev
@@ -197,10 +197,10 @@ export default function SideContent() {
         <button 
           onClick={handleNext}
           disabled={currentIndex === steps.length - 1}
-          className={`px-4 md:px-5 py-2.5 md:py-2.5 rounded-full border border-pink-400/20 text-[10px] md:text-xs font-bold tracking-widest uppercase inline-flex items-center gap-1.5 md:gap-2 bg-white/[0.03] backdrop-blur-md transition-all duration-300 ${
-            currentIndex === steps.length - 1 
-              ? "opacity-10 cursor-not-allowed border-transparent text-white/20" 
-              : "text-pink-200 hover:bg-pink-500/10 hover:border-pink-400/40 active:scale-95 shadow-[0_4px_12px_rgba(0,0,0,0.1)]"
+          className={`px-4 md:px-5 py-2.5 md:py-2.5 rounded-full border border-white/10 text-[10px] md:text-xs font-bold tracking-widest uppercase inline-flex items-center gap-1.5 md:gap-2 bg-purple-900/10 backdrop-blur-xl shadow-xl transition-all duration-300 ${
+            currentIndex === steps.length - 1
+              ? "opacity-10 cursor-not-allowed border-transparent text-white/20"
+              : "text-pink-200 hover:bg-purple-900/20 active:scale-95"
           }`}
         >
           Next 

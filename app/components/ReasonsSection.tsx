@@ -61,10 +61,10 @@ export default function ReasonsSection() {
       >
         {reasons.map((reason, index) => (
           <motion.div 
-            key={index} 
+            key={index}
             variants={itemVariants}
-            whileHover={{ y: -4, scale: 1.01, transition: { duration: 0.2 } }}
-            className="group relative bg-white/3 backdrop-blur-lg border border-white/10 p-8 md:p-10 rounded-4xl shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:border-pink-400/40 hover:bg-white/6 hover:shadow-[0_15px_40px_rgba(244,114,182,0.15)] transition-all duration-500 transform-gpu cursor-default overflow-hidden"
+            whileHover={{ y: -5, transition: { duration: 0.2 } }}
+            className="group relative bg-purple-900/10 backdrop-blur-xl border border-white/10 p-6 md:p-8 rounded-4xl shadow-xl transition-all duration-500 transform-gpu cursor-default overflow-hidden"
           >
             {/* Watermark Angka Besar Dramatis di Background */}
             <div className="absolute -top-4 -right-2 text-[8rem] font-serif font-bold text-white/2 pointer-events-none group-hover:text-pink-400/5 group-hover:-translate-x-2 transition-all duration-700 select-none">

@@ -119,7 +119,7 @@ export default function HeroCelebration({ onStart }: { onStart?: () => void }) {
         <div className="pt-6 relative z-20 pointer-events-auto">
           <button 
             onClick={onStart}
-            className="px-8 py-3 rounded-full border border-fuchsia-300/40 bg-purple-500/30 text-xs md:text-sm text-pink-200 tracking-[0.2em] uppercase hover:bg-fuchsia-500/30 backdrop-blur-md transition-all duration-300 gap-3 text-sm tracking-widest uppercase text-white shadow-[0_0_20px_rgba(217,70,239,0.4)] hover:shadow-[0_0_30px_rgba(217,70,239,0.6)]"
+            className="px-8 py-3 rounded-full border border-white/10 bg-purple-900/10 text-xs md:text-sm text-pink-200 tracking-[0.2em] uppercase hover:bg-purple-900/20 backdrop-blur-xl transition-all duration-300 shadow-xl"
           >
             ✦ Read My Letter ✦
           </button>
@@ -197,7 +197,7 @@ export default function HeroCelebration({ onStart }: { onStart?: () => void }) {
               {/* Tombol Close */}
               <button
                 onClick={() => setSelectedPhoto(null)}
-                className="absolute -top-12 right-0 md:-top-4 md:-right-14 p-2 bg-white/10 hover:bg-white/20 text-white rounded-full backdrop-blur-md transition-colors cursor-pointer"
+                className="absolute -top-12 right-0 md:-top-4 md:-right-14 p-2 bg-purple-900/10 hover:bg-purple-900/20 text-white rounded-full backdrop-blur-xl border border-white/10 shadow-xl transition-colors cursor-pointer"
               >
                 <X size={24} />
               </button>

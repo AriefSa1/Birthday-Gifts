@@ -16,7 +16,7 @@ export default function SurpriseSection() {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-20 z-10">
       {/* Container utama dengan efek Glassmorphism */}
-      <div className="w-full max-w-lg bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 md:p-10 shadow-2xl text-center transition-all duration-500">
+      <div className="w-full max-w-lg bg-purple-900/10 backdrop-blur-xl border border-white/10 rounded-4xl p-6 md:p-8 shadow-xl text-center transition-all duration-500 transform-gpu">
         
         {!isSubmitted ? (
           <div className="animate-fade-in">
@@ -37,7 +37,7 @@ export default function SurpriseSection() {
               />
               <button
                 type="submit"
-                className="w-full bg-linear-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-semibold py-3 px-6 rounded-xl shadow-[0_0_20px_rgba(236,72,153,0.4)] hover:shadow-[0_0_30px_rgba(236,72,153,0.6)] transform hover:-translate-y-1 transition-all duration-300"
+                className="w-full bg-purple-900/10 hover:bg-purple-900/20 text-white font-semibold py-3 px-6 rounded-full border border-white/10 backdrop-blur-xl shadow-xl transform hover:-translate-y-1 transition-all duration-300"
               >
                 Kirim Harapan ✨
               </button>

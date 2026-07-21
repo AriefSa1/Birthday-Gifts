@@ -66,7 +66,7 @@ export default function Galery() {
   return (
     <div className="flex w-full max-w-5xl mx-auto p-4 text-left">
       {/* Box Utama Bergaya Glassmorphism Gelap Premium */}
-      <div className="bg-purple-500/30 border border-purple-300/30 backdrop-blur-xl p-6 md:p-8 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5),_0_0_40px_rgba(244,114,182,0.05)] relative overflow-hidden">
+      <div className="bg-purple-900/10 backdrop-blur-xl border border-white/10 p-6 md:p-8 rounded-4xl shadow-xl relative overflow-hidden transform-gpu">
         
         {/* Dekorasi Aksen Glow Lembut */}
         <div className="absolute -top-12 -right-12 w-40 h-40 bg-pink-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -92,8 +92,8 @@ export default function Galery() {
             <motion.div
               key={photo.id}
               variants={itemVariants}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-purple-900/90 border border-white/10 rounded-xl p-3 shadow-md flex flex-col group transition-all duration-300 hover:border-pink-500/30 hover:shadow-[0_8px_25px_rgba(0,0,0,0.4)]"
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              className="bg-purple-900/10 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl p-3 flex flex-col group transition-all duration-300 transform-gpu"
             >
               {/* Bingkai Luar Gambar */}
               <div className="w-full aspect-[4/3] rounded-lg overflow-hidden bg-black/20 relative">
