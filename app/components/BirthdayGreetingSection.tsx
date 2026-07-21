@@ -78,7 +78,7 @@ export default function BirthdayGreetingSection({
         <h1 className="font-serif text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-linear-to-br from-white via-pink-100 to-purple-400 drop-shadow-[0_0_20px_rgba(233,213,255,0.4)] leading-tight">
           <TypewriterText text="Selamat Ulang Tahun," delay={0.3} />
           <br />
-          <TypewriterText text={`${name}! 🎉`} delay={1.6} />
+          <TypewriterText text={`${name}! 🎉`} delay={1} />
         </h1>
 
         <div className="mt-10 h-12 flex items-center justify-center">

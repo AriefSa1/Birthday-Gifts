@@ -1,14 +1,19 @@
 "use client";
-import React, { useState } from "react";
-import { motion, AnimatePresence, Variants } from "framer-motion";
+import React, { useRef, useState } from "react";
+import { motion, AnimatePresence, Variants, useInView } from "framer-motion";
 import { Heart, Camera, Video, Music, ChevronLeft, ChevronRight } from "lucide-react";
 import TypewriterText from "./ui/TypewriterText";
+import Envelope from "./ui/Envelope";
 
 // ==========================================
 // KOMPONEN UTAMA
 // ==========================================
 export default function SideContent() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  // Amplop terbuka saat section ini benar-benar terlihat (scroll ke sini),
+  // dan bisa terbuka ulang kalau discroll pergi-balik.
+  const isInView = useInView(containerRef, { once: false, amount: 0.3 });
 
   const steps = [
     {
@@ -104,35 +109,39 @@ export default function SideContent() {
 
   return (
     // PERBAIKAN: Gunakan min-h-[100dvh] agar menyesuaikan layar browser HP dengan tepat
-    <div className="w-full max-w-2xl mx-auto px-4 py-8 md:py-12 min-h-[100dvh] flex flex-col justify-between selection:bg-pink-500/30 selection:text-pink-200">
-      
+    <div
+      ref={containerRef}
+      className="w-full max-w-2xl mx-auto px-4 py-8 md:py-12 min-h-[100dvh] flex flex-col justify-between selection:bg-pink-500/30 selection:text-pink-200"
+    >
+
       <div className="flex-grow flex flex-col justify-center my-auto pt-4 md:pt-0">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={steps[currentIndex].id}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={pageTransition}
-            className="w-full bg-purple-900/10 backdrop-blur-xl border border-white/10 p-6 md:p-8 rounded-4xl shadow-xl text-left relative overflow-hidden transform-gpu"
-          >
-            <div className="absolute -top-10 -right-10 w-32 h-32 bg-pink-500/10 rounded-full blur-2xl pointer-events-none" />
-            <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-rose-500/10 rounded-full blur-2xl pointer-events-none" />
+        <Envelope isOpen={isInView} cardTone="dark" className="w-full min-h-[55vh] md:min-h-[60vh]">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={steps[currentIndex].id}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={pageTransition}
+              className="w-full h-full flex flex-col p-6 md:p-8 text-left relative overflow-hidden transform-gpu"
+            >
+              <div className="absolute -top-10 -right-10 w-32 h-32 bg-pink-500/10 rounded-full blur-2xl pointer-events-none" />
+              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-rose-500/10 rounded-full blur-2xl pointer-events-none" />
 
-            <p className="text-[10px] text-center md:text-xs font-bold tracking-[0.25em] text-pink-300/80 uppercase mb-3 drop-shadow-[0_0_6px_rgba(244,114,182,0.3)]">
-              {steps[currentIndex].tag}
-            </p>
+              <p className="text-[10px] text-center md:text-xs font-bold tracking-[0.25em] text-pink-300/80 uppercase mb-3 drop-shadow-[0_0_6px_rgba(244,114,182,0.3)]">
+                {steps[currentIndex].tag}
+              </p>
 
-            <h3 className="font-serif text-center text-2xl md:text-4xl font-semibold tracking-wide text-white mb-6 border-b border-white/5 pb-4">
-              {steps[currentIndex].title}
-            </h3>
-            
-            {/* PERBAIKAN: Batas ketinggian scroll disesuaikan agar rapi di HP */}
-            <div className="max-h-[50vh] md:max-h-[70vh] overflow-y-auto pr-2 custom-scrollbar focus:outline-none">
-              {steps[currentIndex].component}
-            </div>
-          </motion.div>
-        </AnimatePresence>
+              <h3 className="font-serif text-center text-2xl md:text-4xl font-semibold tracking-wide text-white mb-6 border-b border-white/5 pb-4 shrink-0">
+                {steps[currentIndex].title}
+              </h3>
+
+              <div className="flex-1 min-h-0 overflow-y-auto pr-2 custom-scrollbar focus:outline-none">
+                {steps[currentIndex].component}
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </Envelope>
       </div>
 
       {/* Navigasi Control Bar */}

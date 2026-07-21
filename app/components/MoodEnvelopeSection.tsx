@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { Smile, Coffee, CloudRain, Flame, type LucideIcon } from "lucide-react";
 import SectionHeading from "./ui/SectionHeading";
 import Button from "./ui/Button";
 import TypewriterText from "./ui/TypewriterText";
+import Envelope from "./ui/Envelope";
 
 type MoodId = "senang" | "capek" | "sedih" | "marah";
 
@@ -128,37 +128,13 @@ export default function MoodEnvelopeSection() {
         </div>
       ) : (
         <div className="flex flex-col items-center gap-8 w-full">
-          <div key={drawCount} className="relative w-64 h-44 [perspective:800px]">
-            {/* Badan amplop */}
-            <div
-              className={`absolute inset-0 rounded-xl border backdrop-blur-md ${activeMood.border} ${activeMood.bg} ${activeMood.glow}`}
-            />
-
-            {/* Kertas pesan, meluncur keluar dari dalam amplop */}
-            <motion.div
-              initial={{ y: 10, opacity: 0 }}
-              animate={{ y: -52, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
-              className="absolute inset-x-3 top-3 bottom-3 bg-pink-50 rounded-lg shadow-lg p-4 flex items-start z-10 overflow-hidden"
-            >
+          <Envelope key={drawCount} isOpen className="w-64 h-44">
+            <div className="p-4 h-full flex items-start">
               <p className="text-xs md:text-sm text-gray-700 text-left leading-relaxed font-serif">
-                <TypewriterText text={message} delay={1.1} />
+                <TypewriterText text={message} delay={0.55} />
               </p>
-            </motion.div>
-
-            {/* Penutup amplop (flap segitiga) yang terbuka */}
-            <motion.div
-              initial={{ rotateX: 0 }}
-              animate={{ rotateX: -160 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              style={{
-                transformOrigin: "top",
-                transformPerspective: 800,
-                clipPath: "polygon(0% 0%, 100% 0%, 50% 100%)",
-              }}
-              className={`absolute top-0 left-0 right-0 h-1/2 z-20 border ${activeMood.border} ${activeMood.bg}`}
-            />
-          </div>
+            </div>
+          </Envelope>
 
           <div className="flex gap-3 flex-wrap justify-center">
             <Button onClick={() => drawMessage(selectedMood!)}>Buka Amplop Lagi</Button>

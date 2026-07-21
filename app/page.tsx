@@ -185,7 +185,7 @@ export default function Home() {
             className="w-full h-full flex items-center justify-center"
           >
             {/* TODO: ganti "Nama" dengan nama penerima asli */}
-            <BirthdayGreetingSection name="Nama" onContinue={() => setStep(2)} />
+            <BirthdayGreetingSection name="Tiara Indah Devi" onContinue={() => setStep(2)} />
           </motion.div>
         )}
 
