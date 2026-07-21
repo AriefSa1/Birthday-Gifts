@@ -11,6 +11,9 @@ import HeroSection from "./components/HeroSection";
 import LatterSection from "./components/LatterSection";
 import ReasonsSection from "./components/ReasonsSection";
 import TimelineSection from "./components/TimelineSection";
+import WishGeneratorSection from "./components/WishGeneratorSection";
+import QuizSection from "./components/QuizSection";
+import BucketListSection from "./components/BucketListSection";
 
 // Didefinisikan di luar Home agar identitas komponen stabil antar render
 // (di dalam Home, setiap perubahan state membuat ulang fungsi ini dan me-remount seluruh section).
@@ -82,7 +85,8 @@ export default function Home() {
               Sesuatu yang indah sedang menunggu untukmu 🤍
             </p>
             
-            <Countdown targetDate="2026-06-31T00:00:00" onComplete={() => setIsCountdownFinished(true)} />
+            {/* TODO: ganti ke tanggal ulang tahun asli, format "YYYY-MM-DDTHH:mm:ss" */}
+            <Countdown targetDate="2026-08-15T00:00:00" onComplete={() => setIsCountdownFinished(true)} />
             
             <p className="mt-10 text-xs text-purple-300/40 mb-2 tracking-[0.5em]">
               ✧ ✧ ✧
@@ -155,6 +159,18 @@ export default function Home() {
 
             <SnapSection>
               <LatterSection />
+            </SnapSection>
+
+            <SnapSection>
+              <WishGeneratorSection />
+            </SnapSection>
+
+            <SnapSection>
+              <QuizSection />
+            </SnapSection>
+
+            <SnapSection>
+              <BucketListSection />
             </SnapSection>
 
             <SnapSection>
