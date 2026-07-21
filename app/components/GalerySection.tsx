@@ -85,7 +85,8 @@ export default function Galery() {
         <motion.div 
           variants={containerVariants}
           initial="hidden"
-          animate="show"
+          whileInView="show"
+          viewport={{ once: false, margin: "-50px" }}
           className="grid grid-cols-2 sm:grid-cols-4 gap-5 max-h-[75vh] overflow-y-auto pr-2 custom-scrollbar"
         >
           {photos.map((photo) => (

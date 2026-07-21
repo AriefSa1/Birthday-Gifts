@@ -39,7 +39,7 @@ export default function ReasonsSection() {
       <motion.div 
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="text-center mb-16"
       >
@@ -56,7 +56,7 @@ export default function ReasonsSection() {
         variants={containerVariants}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: "-50px" }}
+        viewport={{ once: false, margin: "-50px" }}
         className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
       >
         {reasons.map((reason, index) => (

@@ -113,7 +113,7 @@ export default function PolaroidSection() {
       <motion.div 
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         transition={{ duration: 1, delay: 0.5 }}
         className="absolute left-6 lg:left-12 xl:left-24 top-1/2 -translate-y-1/2 w-64 lg:w-72 hidden md:flex flex-col gap-4 p-6 bg-purple-900/10 backdrop-blur-xl border border-white/10 rounded-4xl shadow-xl z-30 transform-gpu"
       >
@@ -134,7 +134,7 @@ export default function PolaroidSection() {
       <motion.div 
         initial={{ opacity: 0, x: 50 }}
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         transition={{ duration: 1, delay: 0.7 }}
         className="absolute right-6 lg:right-12 xl:right-24 top-1/2 -translate-y-1/2 w-64 lg:w-72 hidden md:flex flex-col gap-4 p-6 bg-purple-900/10 backdrop-blur-xl border border-white/10 rounded-4xl shadow-xl z-30 transform-gpu"
       >
@@ -179,7 +179,7 @@ export default function PolaroidSection() {
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         transition={{ duration: 1 }}
         className="mb-8 md:mb-12 text-center z-30 relative"
       >
@@ -211,7 +211,7 @@ export default function PolaroidSection() {
             variants={containerVariants}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: false, margin: "-50px" }}
             className="w-full h-full relative"
           >
             {polaroids.map((item) => (
