@@ -38,7 +38,7 @@ export default function HeroCelebration({ onStart }: { onStart?: () => void }) {
     <div className="relative w-full min-h-[100dvh] overflow-hidden flex flex-col items-center justify-center font-sans">
       
       {/* 1. LATAR BELAKANG */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(88,28,135,0.15)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(216,148,180,0.20)_0%,transparent_70%)] pointer-events-none" />
       <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] pointer-events-none" />
       
       <div className="absolute top-[25%] left-[20%] w-32 h-32 bg-pink-500/5 rounded-full blur-3xl pointer-events-none animate-pulse" />
@@ -55,7 +55,7 @@ export default function HeroCelebration({ onStart }: { onStart?: () => void }) {
             whileHover={{ scale: 1.15, zIndex: 50 }} 
             onClick={() => setSelectedPhoto(item.src)} 
             style={{ top: item.top, left: item.left, rotate: item.rotate }}
-            className="absolute bg-white p-2.5 pb-7 shadow-[0_10px_30px_rgba(0,0,0,0.5)] w-36 border border-gray-200/10 pointer-events-auto cursor-pointer"
+            className="absolute bg-white p-2.5 pb-7 shadow-[0_10px_30px_rgba(90,50,60,0.25)] w-36 border border-gray-200/10 pointer-events-auto cursor-pointer"
           >
             <div className="w-full aspect-square bg-gray-100 overflow-hidden relative group">
               <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
@@ -80,7 +80,7 @@ export default function HeroCelebration({ onStart }: { onStart?: () => void }) {
             whileHover={{ scale: 1.15, zIndex: 50 }}
             onClick={() => setSelectedPhoto(item.src)}
             style={{ top: item.top, right: item.right, rotate: item.rotate }}
-            className="absolute bg-white p-2.5 pb-7 shadow-[0_10px_30px_rgba(0,0,0,0.5)] w-36 border border-gray-200/10 pointer-events-auto cursor-pointer"
+            className="absolute bg-white p-2.5 pb-7 shadow-[0_10px_30px_rgba(90,50,60,0.25)] w-36 border border-gray-200/10 pointer-events-auto cursor-pointer"
           >
             <div className="w-full aspect-square bg-gray-100 overflow-hidden relative group">
               <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
@@ -105,15 +105,15 @@ export default function HeroCelebration({ onStart }: { onStart?: () => void }) {
         transition={{ duration: 1, ease: "easeOut" }}
         className="text-center z-10 max-w-xl px-6 space-y-6 mt-10 md:mt-0 pointer-events-none"
       >
-        <p className="text-[10px] md:text-xs font-bold tracking-[0.4em] text-pink-300/60 uppercase drop-shadow-[0_0_6px_rgba(244,114,182,0.3)]">
+        <p className="text-[10px] md:text-xs font-bold tracking-[0.4em] text-rose-500/80 uppercase drop-shadow-[0_0_6px_rgba(244,114,182,0.3)]">
           ✦ A Love Letter For You ✦
         </p>
         
-        <h1 className="font-serif text-5xl md:text-7xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-br from-white via-pink-100 to-purple-400 drop-shadow-[0_0_20px_rgba(233,213,255,0.4)]">
+        <h1 className="font-serif text-5xl md:text-7xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-br from-rose-500 via-pink-400 to-rose-400 drop-shadow-[0_0_20px_rgba(216,112,147,0.25)]">
           Ini Fotonya <br className="md:hidden"/> Mana ya ?
         </h1>
         
-        <p className="text-xs md:text-sm text-pink-200/40 font-light italic tracking-wider">
+        <p className="text-xs md:text-sm text-rose-500/70 font-light italic tracking-wider">
           Created with love, just for you
         </p>
 
@@ -123,7 +123,7 @@ export default function HeroCelebration({ onStart }: { onStart?: () => void }) {
           >
             ✦ Read My Letter ✦
           </Button>
-          <p className="text-center pt-4 text-xs text-pink-200/40 font-light italic tracking-wider">
+          <p className="text-center pt-4 text-xs text-rose-500/70 font-light italic tracking-wider">
             Click Tombolnya, Baca Surat Untukmu 🤍
           </p>
         </div>
@@ -144,7 +144,7 @@ export default function HeroCelebration({ onStart }: { onStart?: () => void }) {
             transition={{ duration: 0.9, delay: 0.5 + (index * 0.15), ease: [0.215, 0.610, 0.355, 1.000] }}
             whileHover={{ scale: 1.15, zIndex: 50, y: mobileTransforms[index].y - 10 }}
             onClick={() => setSelectedPhoto(item.src)}
-            className="absolute bg-white p-1.5 pb-6 shadow-[0_10px_20px_rgba(0,0,0,0.4)] w-24 border border-gray-200/10 pointer-events-auto cursor-pointer transform-origin-bottom"
+            className="absolute bg-white p-1.5 pb-6 shadow-[0_10px_20px_rgba(90,50,60,0.20)] w-24 border border-gray-200/10 pointer-events-auto cursor-pointer transform-origin-bottom"
             style={{ zIndex: index }}
           >
             <div className="w-full aspect-square bg-gray-100 overflow-hidden relative group">
@@ -184,12 +184,12 @@ export default function HeroCelebration({ onStart }: { onStart?: () => void }) {
               <img
                 src={selectedPhoto}
                 alt="Zoomed Memory"
-                className="max-w-full max-h-[85vh] object-contain rounded-xl shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-white/10"
+                className="max-w-full max-h-[85vh] object-contain rounded-xl shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-rose-200/60"
               />
               
               {/* PERBAIKAN: Logika pencarian moment yang lebih bersih & aman */}
               <div>
-                <p className="absolute bottom-[-2.5rem] left-1/2 transform -translate-x-1/2 text-xs md:text-sm text-pink-200/60 font-light italic tracking-wider uppercase">
+                <p className="absolute bottom-[-2.5rem] left-1/2 transform -translate-x-1/2 text-xs md:text-sm text-pink-100/80 font-light italic tracking-wider uppercase">
                   {[...leftPolaroids, ...rightPolaroids].find(photo => photo.src === selectedPhoto)?.moment || "Memory"}
                 </p>
               </div>
@@ -197,7 +197,7 @@ export default function HeroCelebration({ onStart }: { onStart?: () => void }) {
               {/* Tombol Close */}
               <button
                 onClick={() => setSelectedPhoto(null)}
-                className="absolute -top-12 right-0 md:-top-4 md:-right-14 p-2 bg-purple-900/10 hover:bg-purple-900/20 text-white rounded-full backdrop-blur-xl border border-white/10 shadow-xl transition-colors cursor-pointer"
+                className="absolute -top-12 right-0 md:-top-4 md:-right-14 p-2 bg-white/60 hover:bg-rose-100/70 text-rose-900 rounded-full backdrop-blur-xl border border-rose-200/60 shadow-xl transition-colors cursor-pointer"
               >
                 <X size={24} />
               </button>

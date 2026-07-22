@@ -74,10 +74,10 @@ export default function StarBackground() {
         const isFlare = isNear && Math.random() > 0.8; 
         
         const colorPicks = [
-          "255, 255, 255", 
-          "253, 164, 255", 
-          "233, 213, 255", 
-          "191, 219, 254"  
+          "236, 72, 153",
+          "217, 119, 148",
+          "192, 132, 252",
+          "245, 158, 11"
         ];
         const color = colorPicks[Math.floor(Math.random() * colorPicks.length)];
 
@@ -123,7 +123,7 @@ export default function StarBackground() {
           //Ubah value color untuk menentukan warna partikel hati. contoh ubah colors[Math.floor(Math.random() * colors.length)] menjadi "255, 0, 0" untuk semua partikel berwarna merah
           color: colors[Math.floor(Math.random() * colors.length)],
           //Ubah value opacity untuk menentukan tingkat transparansi partikel hati. contoh ubah 0.2 menjadi 0.3 untuk partikel lebih terlihat
-          opacity: Math.random() * 0.02 + 0.05,
+          opacity: Math.random() * 0.04 + 0.10,
           //Ubah value blur untuk menentukan tingkat blur partikel hati. contoh ubah 1 menjadi 2 untuk partikel lebih blur 
           blur: Math.random() * 4 + 5, // Perbesar sedikit nilai blur untuk kompensasi shadowBlur
         });
@@ -131,15 +131,15 @@ export default function StarBackground() {
     };
 
     const drawGalaxyBackground = (ctx: CanvasRenderingContext2D) => {
-      ctx.fillStyle = "#07010a"; 
+      ctx.fillStyle = "#fdf4ec"; 
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       
       const gradient2 = ctx.createRadialGradient(
         canvas.width * 0.8, canvas.height * 0.2, 0,
         canvas.width * 0.8, canvas.height * 0.2, canvas.width * 0.6
       );
-      gradient2.addColorStop(0, "rgba(35, 6, 63, 0.12)"); 
-      gradient2.addColorStop(0.6, "rgba(189, 103, 146, 0.05)"); 
+      gradient2.addColorStop(0, "rgba(244, 180, 197, 0.30)"); 
+      gradient2.addColorStop(0.6, "rgba(217, 140, 160, 0.12)"); 
       gradient2.addColorStop(1, "rgba(0, 0, 0, 0)");
 
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -209,8 +209,8 @@ export default function StarBackground() {
         ctx.save();
         ctx.beginPath();
         const gradient = ctx.createLinearGradient(meteor.x, meteor.y, tailX, tailY);
-        gradient.addColorStop(0, `rgba(255, 255, 255, ${meteor.opacity})`); 
-        gradient.addColorStop(1, `rgba(255, 255, 255, 0)`); 
+        gradient.addColorStop(0, `rgba(236, 110, 160, ${meteor.opacity})`); 
+        gradient.addColorStop(1, `rgba(236, 110, 160, 0)`); 
 
         ctx.strokeStyle = gradient;
         ctx.lineWidth = 1.5; 
@@ -220,8 +220,8 @@ export default function StarBackground() {
         
         ctx.beginPath();
         ctx.arc(meteor.x, meteor.y, 1, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${meteor.opacity})`;
-        ctx.shadowColor = "white";
+        ctx.fillStyle = `rgba(236, 110, 160, ${meteor.opacity})`;
+        ctx.shadowColor = "rgba(236, 110, 160, 0.9)";
         ctx.shadowBlur = 10;
         ctx.fill();
         
@@ -369,7 +369,7 @@ export default function StarBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 w-full h-full bg-[#13041a] pointer-events-none -z-10"
+      className="fixed inset-0 w-full h-full bg-[#fdf4ec] pointer-events-none -z-10"
     />
   );
 }

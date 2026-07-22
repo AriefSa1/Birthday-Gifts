@@ -92,28 +92,28 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="flex flex-col items-center justify-center text-center px-4 w-full h-full"
           >
-            <p className="text-xs tracking-[0.3em] uppercase text-fuchsia-300/90 mb-3 drop-shadow-[0_0_8px_rgba(217,70,239,0.5)]">
+            <p className="text-xs tracking-[0.3em] uppercase text-rose-500/90 mb-3 drop-shadow-[0_0_8px_rgba(217,112,147,0.35)]">
               ✧ Menghitung Hari ✧
             </p>
             
-            <h1 className="font-serif text-5xl md:text-7xl font-bold mb-4 text-transparent bg-clip-text bg-linear-to-br from-white via-pink-100 to-purple-400 drop-shadow-[0_0_20px_rgba(233,213,255,0.4)]">
+            <h1 className="font-serif text-5xl md:text-7xl font-bold mb-4 text-transparent bg-clip-text bg-linear-to-br from-rose-500 via-pink-400 to-rose-400 drop-shadow-[0_0_20px_rgba(216,112,147,0.25)]">
               Your Special Day <br/> is Coming
             </h1>
             
-            <p className="italic text-sm text-purple-200/80 mb-12 font-light drop-shadow-md">
+            <p className="italic text-sm text-rose-700/80 mb-12 font-light drop-shadow-md">
               Sesuatu yang indah sedang menunggu untukmu 🤍
             </p>
             
             {/* TODO: ganti ke tanggal ulang tahun asli, format "YYYY-MM-DDTHH:mm:ss" */}
             <Countdown targetDate="2026-06-31T00:00:00" onComplete={() => setIsCountdownFinished(true)} />
             
-            <p className="mt-10 text-xs text-purple-300/40 mb-2 tracking-[0.5em]">
+            <p className="mt-10 text-xs text-rose-300/90 mb-2 tracking-[0.5em]">
               ✧ ✧ ✧
             </p>
             
             <div className="mt-8 h-20 flex flex-col items-center justify-center">
               {!isCountdownFinished && (
-                <p className="text-xs text-purple-300/60 mb-2 animate-pulse tracking-widest uppercase drop-shadow-sm">
+                <p className="text-xs text-rose-400/90 mb-2 animate-pulse tracking-widest uppercase drop-shadow-sm">
                   Tunggu sampai waktunya tiba...
                 </p>
               )}

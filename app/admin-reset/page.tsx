@@ -31,9 +31,9 @@ export default function AdminResetPage() {
   };
 
   return (
-    <main className="min-h-dvh w-full flex items-center justify-center bg-[#0b060a] px-4">
-      <div className="w-full max-w-sm bg-purple-950/20 border border-purple-400/20 rounded-2xl p-6 backdrop-blur-md">
-        <h1 className="text-sm uppercase tracking-widest text-pink-200 mb-4">
+    <main className="min-h-dvh w-full flex items-center justify-center bg-[#fdf4ec] px-4">
+      <div className="w-full max-w-sm bg-white/70 border border-rose-200/70 rounded-2xl p-6 backdrop-blur-md">
+        <h1 className="text-sm uppercase tracking-widest text-rose-700 mb-4">
           Reset jawaban
         </h1>
         <input
@@ -41,12 +41,12 @@ export default function AdminResetPage() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
-          className="w-full mb-4 px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-pink-50 text-sm outline-none focus:border-pink-400/50"
+          className="w-full mb-4 px-3 py-2 rounded-lg bg-rose-100/60 border border-rose-200/60 text-rose-900 text-sm outline-none focus:border-pink-400/50"
         />
         <button
           onClick={handleReset}
           disabled={status === "loading" || !password}
-          className="w-full py-2 rounded-lg bg-pink-600/30 border border-pink-400/30 text-pink-100 text-sm uppercase tracking-widest disabled:opacity-40"
+          className="w-full py-2 rounded-lg bg-pink-600/30 border border-pink-400/30 text-rose-800 text-sm uppercase tracking-widest disabled:opacity-40"
         >
           {status === "loading" ? "Memproses..." : "Reset semua jawaban"}
         </button>

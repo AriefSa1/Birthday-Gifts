@@ -30,13 +30,13 @@ export default function QuizSection() {
       <SectionHeading eyebrow="✧ Seberapa Kenal Kamu ✧" title="Love Quiz" className="mb-6" />
 
       {!loaded ? (
-        <p className="text-sm text-purple-300/60">Memuat...</p>
+        <p className="text-sm text-rose-400/90">Memuat...</p>
       ) : isDone ? (
         <Card size="lg">
-          <p className="text-lg text-pink-100 mb-2">
+          <p className="text-lg text-rose-800 mb-2">
             Skor kamu: {correctCount} / {QUESTIONS.length}
           </p>
-          <p className="text-sm text-purple-300/70">
+          <p className="text-sm text-rose-400/90">
             {correctCount === QUESTIONS.length
               ? "Sempurna, kamu emang paling kenal aku."
               : "Makasih udah nyoba jawab semuanya."}
@@ -54,21 +54,21 @@ export default function QuizSection() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-left"
               >
-                <p className="text-[10px] uppercase tracking-widest text-purple-300/60 mb-2">
+                <p className="text-[10px] uppercase tracking-widest text-rose-400/90 mb-2">
                   Pertanyaan {qIndex + 1} dari {QUESTIONS.length}
                 </p>
-                <p className="text-sm md:text-base text-pink-50 mb-3">{q.question}</p>
+                <p className="text-sm md:text-base text-rose-900 mb-3">{q.question}</p>
                 <div className="flex flex-col gap-2">
                   {q.options.map((opt, optIndex) => {
                     const isCorrect = optIndex === q.correctIndex;
                     const isPicked = optIndex === selected;
-                    let style = "bg-white/5 border-white/10 text-purple-100";
+                    let style = "bg-rose-100/60 border-rose-200/60 text-rose-800";
                     if (isAnswered && isPicked && isCorrect) {
-                      style = "bg-green-500/15 border-green-400/40 text-green-200";
+                      style = "bg-green-500/15 border-green-400/40 text-green-700";
                     } else if (isAnswered && isPicked && !isCorrect) {
-                      style = "bg-red-500/15 border-red-400/40 text-red-200";
+                      style = "bg-red-500/15 border-red-400/40 text-red-700";
                     } else if (isAnswered && isCorrect) {
-                      style = "bg-green-500/10 border-green-400/20 text-green-200/70";
+                      style = "bg-green-500/10 border-green-400/20 text-green-700/60";
                     }
                     return (
                       <button

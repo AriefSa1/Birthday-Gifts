@@ -38,10 +38,10 @@ export default function ReasonsSection() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="text-center mb-16"
       >
-        <p className="text-xs tracking-[0.4em] uppercase text-pink-300/80 mb-3 drop-shadow-[0_0_8px_rgba(244,114,182,0.4)]">
+        <p className="text-xs tracking-[0.4em] uppercase text-rose-500/90 mb-3 drop-shadow-[0_0_8px_rgba(244,114,182,0.4)]">
           Why I Love You
         </p>
-        <h2 className="font-serif text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-linear-to-r from-white via-pink-100 to-purple-300 drop-shadow-md">
+        <h2 className="font-serif text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-linear-to-r from-rose-500 via-pink-400 to-rose-300 drop-shadow-md">
           Things I Admire About You
         </h2>
       </motion.div>
@@ -59,10 +59,10 @@ export default function ReasonsSection() {
             key={index}
             variants={itemVariants}
             whileHover={{ y: -5, transition: { duration: 0.2 } }}
-            className="group relative bg-purple-900/10 backdrop-blur-xl border border-white/10 p-6 md:p-8 rounded-4xl shadow-xl transition-all duration-500 transform-gpu cursor-default overflow-hidden"
+            className="group relative bg-white/60 backdrop-blur-xl border border-rose-200/60 p-6 md:p-8 rounded-4xl shadow-xl transition-all duration-500 transform-gpu cursor-default overflow-hidden"
           >
             {/* Watermark Angka Besar Dramatis di Background */}
-            <div className="absolute -top-4 -right-2 text-[8rem] font-serif font-bold text-white/2 pointer-events-none group-hover:text-pink-400/5 group-hover:-translate-x-2 transition-all duration-700 select-none">
+            <div className="absolute -top-4 -right-2 text-[8rem] font-serif font-bold text-rose-900/2 pointer-events-none group-hover:text-pink-400/5 group-hover:-translate-x-2 transition-all duration-700 select-none">
               {index + 1}
             </div>
 
@@ -75,7 +75,7 @@ export default function ReasonsSection() {
             </div>
             
             {/* Teks Alasan */}
-            <p className="text-white/90 text-lg md:text-xl font-light leading-relaxed relative z-10 italic">
+            <p className="text-rose-900/90 text-lg md:text-xl font-light leading-relaxed relative z-10 italic">
               &ldquo;{reason}&rdquo;
             </p>
 

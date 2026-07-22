@@ -19,10 +19,10 @@ export default function TimelineSection() {
         viewport={{ once: false }}
         className="text-center mb-20 relative z-10"
       >
-        <p className="text-xs tracking-[0.5em] uppercase text-pink-300/60 mb-3 flex items-center justify-center gap-2">
+        <p className="text-xs tracking-[0.5em] uppercase text-rose-500/80 mb-3 flex items-center justify-center gap-2">
           <Sparkles size={14} /> Our Story
         </p>
-        <h2 className="font-serif text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-linear-to-r from-white via-pink-100 to-purple-400 drop-shadow-[0_0_15px_rgba(233,213,255,0.4)]">
+        <h2 className="font-serif text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-linear-to-r from-rose-500 via-pink-400 to-rose-400 drop-shadow-[0_0_15px_rgba(216,112,147,0.25)]">
           Perjalanan Indah Kita
         </h2>
       </motion.div>
@@ -51,7 +51,7 @@ export default function TimelineSection() {
                     whileInView={{ scale: 1 }}
                     viewport={{ once: false }}
                     transition={{ delay: 0.5, type: "spring" }}
-                    className="w-full h-full bg-pink-500 rounded-full border-4 border-[#0b060a] shadow-[0_0_15px_rgba(236,72,153,0.6)] relative"
+                    className="w-full h-full bg-pink-500 rounded-full border-4 border-[#fdf4ec] shadow-[0_0_15px_rgba(236,72,153,0.6)] relative"
                   >
                     <div className="absolute inset-0 bg-pink-400 rounded-full animate-ping opacity-20" />
                   </motion.div>
@@ -61,7 +61,7 @@ export default function TimelineSection() {
                 <div className="w-full md:w-[45%] ml-12 md:ml-0">
                   <motion.div 
                     whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                    className="group relative bg-purple-900/10 backdrop-blur-xl border border-white/10 p-6 md:p-8 rounded-4xl shadow-xl overflow-hidden transform-gpu"
+                    className="group relative bg-white/60 backdrop-blur-xl border border-rose-200/60 p-6 md:p-8 rounded-4xl shadow-xl overflow-hidden transform-gpu"
                   >
                     {/* Aksen Gradient pada Hover */}
                     <div className={`absolute inset-0 bg-linear-to-br ${item.color} opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500`} />
@@ -69,13 +69,13 @@ export default function TimelineSection() {
                     <div className="relative z-10">
                       <div className="flex items-center gap-4 mb-4">
                         <span className="text-3xl filter drop-shadow-md">{item.icon}</span>
-                        <div className="h-px grow bg-linear-to-r from-white/20 to-transparent" />
+                        <div className="h-px grow bg-linear-to-r from-rose-300/50 to-transparent" />
                       </div>
                       
-                      <h3 className="text-xl font-bold text-pink-200 mb-3 tracking-wide">
+                      <h3 className="text-xl font-bold text-rose-700 mb-3 tracking-wide">
                         {item.year}
                       </h3>
-                      <p className="text-sm md:text-base text-purple-100/70 leading-relaxed font-light">
+                      <p className="text-sm md:text-base text-rose-800/70 leading-relaxed font-light">
                         {item.text}
                       </p>
                     </div>

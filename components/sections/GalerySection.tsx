@@ -38,17 +38,17 @@ export default function GalerySection() {
   return (
     <div className="flex w-full max-w-5xl mx-auto p-4 text-left">
       {/* Box Utama Bergaya Glassmorphism Gelap Premium */}
-      <div className="w-full bg-purple-900/10 backdrop-blur-xl border border-white/10 p-6 md:p-8 rounded-4xl shadow-xl relative overflow-hidden transform-gpu">
+      <div className="w-full bg-white/60 backdrop-blur-xl border border-rose-200/60 p-6 md:p-8 rounded-4xl shadow-xl relative overflow-hidden transform-gpu">
 
         {/* Dekorasi Aksen Glow Lembut */}
         <div className="absolute -top-12 -right-12 w-40 h-40 bg-pink-500/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* Judul Atas Sesi */}
-        <div className="flex flex-col mb-6 border-b border-white/5 pb-4">
-          <p className="text-[10px] md:text-xs font-bold text-center tracking-[0.25em] text-pink-300/80 uppercase mb-2 drop-shadow-[0_0_8px_rgba(244,114,182,0.4)] flex items-center justify-center gap-2">
+        <div className="flex flex-col mb-6 border-b border-rose-100/70 pb-4">
+          <p className="text-[10px] md:text-xs font-bold text-center tracking-[0.25em] text-rose-500/90 uppercase mb-2 drop-shadow-[0_0_8px_rgba(244,114,182,0.4)] flex items-center justify-center gap-2">
             <Camera size={12} /> ✧ MEMORI KITA ✧
           </p>
-          <h3 className="font-serif text-center text-2xl md:text-3xl font-semibold text-white tracking-wide">
+          <h3 className="font-serif text-center text-2xl md:text-3xl font-semibold text-rose-900 tracking-wide">
             Galeri Foto Favorit
           </h3>
         </div>
@@ -67,7 +67,7 @@ export default function GalerySection() {
               variants={itemVariants}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
               onClick={() => setActiveId((prev) => (prev === photo.id ? null : photo.id))}
-              className={`relative h-52 md:h-64 rounded-2xl overflow-hidden border border-white/10 shadow-xl group transform-gpu cursor-pointer ${
+              className={`relative h-52 md:h-64 rounded-2xl overflow-hidden border border-rose-200/60 shadow-xl group transform-gpu cursor-pointer ${
                 isWide(index) ? "md:col-span-3" : "md:col-span-2"
               }`}
             >
@@ -81,7 +81,7 @@ export default function GalerySection() {
 
               {/* Badge Tanggal Mini di Pojok Kanan Atas */}
               {photo.date && (
-                <span className="absolute top-2 right-2 z-20 text-[9px] tracking-widest font-bold text-pink-200 bg-[#1c1219]/80 border border-pink-400/20 px-2 py-0.5 rounded-full backdrop-blur-sm shadow-sm">
+                <span className="absolute top-2 right-2 z-20 text-[9px] tracking-widest font-bold text-rose-700 bg-white/85 border border-pink-400/20 px-2 py-0.5 rounded-full backdrop-blur-sm shadow-sm">
                   {photo.date}
                 </span>
               )}
@@ -92,6 +92,7 @@ export default function GalerySection() {
                   activeId === photo.id ? "opacity-100" : "opacity-0 group-hover:opacity-100"
                 }`}
               >
+                {/* Teks tetap terang karena berada di atas gradasi gelap foto */}
                 <p className="text-xs md:text-sm text-pink-50 leading-relaxed font-light">
                   &ldquo;{photo.caption}&rdquo;
                 </p>

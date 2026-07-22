@@ -57,9 +57,9 @@ export default function WishGeneratorSection() {
             animate={{ rotateY: 0, opacity: 1 }}
             exit={{ rotateY: -90, opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="absolute inset-0 flex items-center justify-center shadow-[0_0_25px_rgba(147,51,234,0.15)]"
+            className="absolute inset-0 flex items-center justify-center shadow-[0_0_25px_rgba(217,140,160,0.20)]"
           >
-            <p className="text-sm md:text-base text-pink-50 italic leading-relaxed">
+            <p className="text-sm md:text-base text-rose-900 italic leading-relaxed">
               {!loaded
                 ? "Memuat..."
                 : data?.message ?? "Belum ada kartu yang ditarik."}

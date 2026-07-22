@@ -138,7 +138,7 @@ export default function GrandFinaleSection() {
           <p className="text-[10px] md:text-xs font-bold tracking-[0.25em] text-champagne/80 uppercase mb-2 drop-shadow-[0_0_8px_rgba(232,195,154,0.4)]">
             {FINALE.eyebrow}
           </p>
-          <h3 className="font-serif text-3xl md:text-5xl font-semibold text-white mb-10">
+          <h3 className="font-serif text-3xl md:text-5xl font-semibold text-rose-900 mb-10">
             {FINALE.title}
           </h3>
 
@@ -168,17 +168,17 @@ export default function GrandFinaleSection() {
             </div>
             {/* Kue */}
             <div className="w-40 h-10 -mt-1 rounded-[50%] bg-gradient-to-b from-rose-400 to-rose-500 shadow-xl" />
-            <div className="w-48 h-12 -mt-4 rounded-[50%] bg-gradient-to-b from-purple-800 to-purple-900 border border-white/10" />
+            <div className="w-48 h-12 -mt-4 rounded-[50%] bg-gradient-to-b from-rose-200 to-rose-300 border border-rose-200/60" />
           </button>
 
           {/* Progress hold */}
-          <div className="w-40 h-1 bg-white/10 rounded-full mt-8 overflow-hidden">
+          <div className="w-40 h-1 bg-rose-100/70 rounded-full mt-8 overflow-hidden">
             <div
               className="h-full bg-gradient-to-r from-amber-300 to-rose-400 rounded-full transition-[width] duration-75"
               style={{ width: `${holdProgress * 100}%` }}
             />
           </div>
-          <p className="text-xs text-purple-300/60 tracking-widest uppercase mt-4 animate-pulse">
+          <p className="text-xs text-rose-400/90 tracking-widest uppercase mt-4 animate-pulse">
             {FINALE.holdHint}
           </p>
         </motion.div>
@@ -195,7 +195,7 @@ export default function GrandFinaleSection() {
             {FINALE.closingLines.map((line, i) => (
               <p
                 key={i}
-                className="font-serif italic text-xl md:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-champagne via-pink-100 to-rosegold leading-relaxed drop-shadow-[0_0_15px_rgba(232,195,154,0.25)]"
+                className="font-serif italic text-xl md:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-champagne via-rose-400 to-rosegold leading-relaxed drop-shadow-[0_0_15px_rgba(232,195,154,0.25)]"
               >
                 <TypewriterText text={line} delay={0.8 + i * 1.8} />
               </p>
@@ -214,11 +214,11 @@ export default function GrandFinaleSection() {
                   transition={{ duration: 0.6 }}
                   className={`w-full flex flex-col items-center gap-4 ${isShaking ? "animate-shake" : ""}`}
                 >
-                  <p className="text-xs tracking-[0.2em] uppercase text-pink-300/70 flex items-center gap-2">
+                  <p className="text-xs tracking-[0.2em] uppercase text-rose-500/90 flex items-center gap-2">
                     <Mail size={14} /> {SECRET.buttonLabel}
                   </p>
                   <Card size="md" tone="strong" className="w-full max-w-xs flex flex-col gap-3 items-center">
-                    <p className="text-[11px] text-purple-200/70 flex items-center gap-1.5">
+                    <p className="text-[11px] text-rose-700/70 flex items-center gap-1.5">
                       <Lock size={11} /> {SECRET.hint}
                     </p>
                     <input
@@ -228,7 +228,7 @@ export default function GrandFinaleSection() {
                       onChange={(e) => setGuess(e.target.value)}
                       onKeyDown={(e) => e.key === "Enter" && submitGuess()}
                       placeholder="····"
-                      className="w-28 text-center text-lg tracking-[0.5em] py-2 rounded-lg bg-white/5 border border-white/15 text-pink-50 placeholder-white/25 focus:outline-none focus:border-pink-400 transition-colors"
+                      className="w-28 text-center text-lg tracking-[0.5em] py-2 rounded-lg bg-rose-100/60 border border-rose-200/70 text-rose-900 placeholder-rose-300/60 focus:outline-none focus:border-pink-400 transition-colors"
                     />
                     {wrongCount > 0 && (
                       <p className="text-[11px] text-rose-300/80 italic">
@@ -251,7 +251,7 @@ export default function GrandFinaleSection() {
                   className="w-full"
                 >
                   <Card size="lg" tone="strong" className="w-full border-champagne/30">
-                    <p className="font-serif italic text-base md:text-lg text-pink-50/95 leading-relaxed">
+                    <p className="font-serif italic text-base md:text-lg text-rose-900/95 leading-relaxed">
                       <TypewriterText text={SECRET.message} delay={0.3} />
                     </p>
                   </Card>

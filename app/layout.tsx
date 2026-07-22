@@ -30,23 +30,23 @@ export default function RootLayout({
       lang="id"
       className={`${inter.variable} ${cormorant.variable} h-full overflow-hidden overflow-x-hidden antialiased`}
     >
-      <body className="h-dvh w-full flex flex-col bg-[#0b060a] text-pink-50 relative overflow-x-hidden overflow-y-hidden overscroll-y-none overscroll-x-none select-none">
+      <body className="h-dvh w-full flex flex-col bg-[#fdf4ec] text-rose-900 relative overflow-x-hidden overflow-y-hidden overscroll-y-none overscroll-x-none select-none">
 
         {/* FITUR ESTETIK 1: Efek Kerlipan Bintang Animatif */}
         <StarBackground />
 
         {/* FITUR ESTETIK 2: Ambient Glowing Aura Overlay */}
         <div
-          className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-pink-900/10 blur-[120px] pointer-events-none -z-20 animate-pulse transform-gpu will-change-transform"
+          className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-pink-300/40 blur-[120px] pointer-events-none -z-20 animate-pulse transform-gpu will-change-transform"
           style={{ animationDuration: '8s' }}
         />
         <div
-          className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-purple-950/15 blur-[150px] pointer-events-none -z-20 animate-pulse transform-gpu will-change-transform"
+          className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-rose-200/50 blur-[150px] pointer-events-none -z-20 animate-pulse transform-gpu will-change-transform"
           style={{ animationDuration: '12s' }}
         />
 
         {/* FITUR ESTETIK 3: Efek Vignette Film Sinematik */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(5,2,5,0.7)_100%)] pointer-events-none -z-10" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(240,205,196,0.65)_100%)] pointer-events-none -z-10" />
 
         {/* FITUR ESTETIK 4: Grain halus supaya terasa seperti film analog */}
         <div className="film-grain pointer-events-none absolute inset-0 -z-10" />

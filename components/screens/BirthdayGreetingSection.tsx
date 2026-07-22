@@ -71,11 +71,11 @@ export default function BirthdayGreetingSection({
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0" />
 
       <div className="relative z-10 flex flex-col items-center">
-        <p className="text-xs tracking-[0.3em] uppercase text-fuchsia-300/90 mb-4 drop-shadow-[0_0_8px_rgba(217,70,239,0.5)]">
+        <p className="text-xs tracking-[0.3em] uppercase text-rose-500/90 mb-4 drop-shadow-[0_0_8px_rgba(217,112,147,0.35)]">
           ✧ Hari Ini Spesial ✧
         </p>
 
-        <h1 className="font-serif text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-linear-to-br from-white via-pink-100 to-purple-400 drop-shadow-[0_0_20px_rgba(233,213,255,0.4)] leading-tight">
+        <h1 className="font-serif text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-linear-to-br from-rose-500 via-pink-400 to-rose-400 drop-shadow-[0_0_20px_rgba(216,112,147,0.25)] leading-tight">
           <TypewriterText text="Selamat Ulang Tahun," delay={0.3} />
           <br />
           <TypewriterText text={`${name}! 🎉`} delay={1} />
@@ -89,7 +89,7 @@ export default function BirthdayGreetingSection({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="text-xs text-purple-300/60 tracking-widest uppercase animate-pulse"
+                className="text-xs text-rose-400/90 tracking-widest uppercase animate-pulse"
               >
                 Nikmati dulu momennya... {secondsLeft}
               </motion.p>

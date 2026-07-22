@@ -51,10 +51,10 @@ export default function Countdown({
         <div key={unit} className="flex flex-col items-center">
           
           {/* KOTAK KACA KOSMIK DENGAN EFEK PERSPECTIVE UNTUK 3D FLIP */}
-          <div className="w-16 h-20 md:w-20 md:h-24 bg-purple-500/30 border border-fuchsia-300/20 backdrop-blur-md rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(147,51,234,0.15)] mb-3 relative overflow-hidden [perspective:1000px]">
+          <div className="w-16 h-20 md:w-20 md:h-24 bg-white/70 border border-rose-200/70 backdrop-blur-md rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(217,140,160,0.20)] mb-3 relative overflow-hidden [perspective:1000px]">
             
             {/* Pantulan Cahaya (Highlight) di atas kotak */}
-            <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-fuchsia-200/40 to-transparent z-10" />
+            <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-rose-300/60 to-transparent z-10" />
             
             {/* LOGIKA ANIMASI FLIP (OPEN BOOK) */}
             <AnimatePresence mode="popLayout">
@@ -66,8 +66,8 @@ export default function Countdown({
                 transition={{ duration: 0.5, type: "spring", bounce: 0.3 }}
                 className="absolute flex items-center justify-center origin-center"
               >
-                {/* ANGKA: Gradasi putih ke ungu muda dengan drop-shadow fuchsia */}
-                <span className="text-3xl md:text-5xl glow-text font-serif text-transparent bg-clip-text bg-gradient-to-b from-white to-purple-200 drop-shadow-[0_0_12px_rgba(217,70,239,0.4)]">
+                {/* ANGKA: Gradasi rose ke pink dengan glow lembut */}
+                <span className="text-3xl md:text-5xl glow-text font-serif text-transparent bg-clip-text bg-gradient-to-b from-rose-500 to-pink-400 drop-shadow-[0_0_12px_rgba(217,70,239,0.4)]">
                   {value.toString().padStart(2, '0')}
                 </span>
               </motion.div>
@@ -76,7 +76,7 @@ export default function Countdown({
           </div>
           
           {/* LABEL (Hari, Jam, Menit, Detik) */}
-          <span className="text-[10px] md:text-xs tracking-[0.2em] uppercase text-purple-300/70">
+          <span className="text-[10px] md:text-xs tracking-[0.2em] uppercase text-rose-400/90">
             {unit}
           </span>
           

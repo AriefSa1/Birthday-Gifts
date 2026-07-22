@@ -24,7 +24,7 @@ export default function BucketListSection() {
   return (
     <div className="flex flex-col items-center text-center px-4 max-w-md w-full">
       <SectionHeading eyebrow="✧ Mimpi Kita Berdua ✧" title="Bucket List" className="mb-2" />
-      <p className="text-xs text-purple-300/60 mb-6">
+      <p className="text-xs text-rose-400/90 mb-6">
         {loaded ? `${checked.length} dari ${ITEMS.length} tercapai` : "Memuat..."}
       </p>
 
@@ -40,14 +40,14 @@ export default function BucketListSection() {
               whileTap={{ scale: 0.98 }}
               className={`flex items-center gap-3 text-left px-4 py-3 rounded-xl border backdrop-blur-md transition-colors ${
                 isChecked
-                  ? "bg-fuchsia-500/10 border-fuchsia-300/30"
-                  : "bg-white/5 border-white/10"
+                  ? "bg-pink-400/15 border-rose-300/60"
+                  : "bg-rose-100/60 border-rose-200/60"
               }`}
             >
-              <span className={isChecked ? "text-yellow-300" : "text-white/20"}>
+              <span className={isChecked ? "text-amber-500" : "text-rose-900/25"}>
                 {isChecked ? "★" : "☆"}
               </span>
-              <span className={`text-sm ${isChecked ? "text-pink-50" : "text-purple-200/70"}`}>
+              <span className={`text-sm ${isChecked ? "text-rose-900" : "text-rose-700/70"}`}>
                 {label}
               </span>
             </motion.button>

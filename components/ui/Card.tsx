@@ -12,8 +12,8 @@ const sizeStyles: Record<NonNullable<CardProps["size"]>, string> = {
 };
 
 const toneStyles: Record<NonNullable<CardProps["tone"]>, string> = {
-  default: "bg-purple-500/10 border-fuchsia-300/20",
-  strong: "bg-purple-500/20 border-fuchsia-300/30",
+  default: "bg-white/70 border-rose-200/70",
+  strong: "bg-white/85 border-rose-300/60",
 };
 
 const Card = forwardRef<HTMLDivElement, CardProps>(function Card(
