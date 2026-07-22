@@ -51,7 +51,8 @@ export default function MoodEnvelopeSection() {
         <div className="flex flex-col items-center gap-8 w-full">
           <Card size="lg" tone="strong" className="w-full">
             <p className="text-sm md:text-base text-pink-100/90 text-left leading-relaxed font-serif">
-              <TypewriterText text={message} delay={0.2} />
+              {/* key={message} me-remount typewriter supaya efek ngetik mengulang tiap tarik pesan baru */}
+              <TypewriterText key={message} text={message} delay={0.2} />
             </p>
           </Card>
           <div className="flex gap-3 flex-wrap justify-center">
