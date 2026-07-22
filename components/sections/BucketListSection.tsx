@@ -4,16 +4,7 @@ import { motion } from "framer-motion";
 import { useSectionState } from "@/hooks/useSectionState";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ProgressBar from "@/components/ui/ProgressBar";
-
-// TODO: ganti dengan mimpi/rencana asli kalian berdua
-const ITEMS = [
-  "Liburan ke Jepang bareng",
-  "Nonton konser artis favorit bareng",
-  "Masak makan malam bareng tiap minggu",
-  "Roadtrip ke pantai pas sunrise",
-  "Piknik sambil bawa playlist lagu kita",
-  "Belajar satu hobi baru bareng",
-];
+import { BUCKET_LIST_ITEMS as ITEMS } from "@/content/bucket-list";
 
 type BucketData = { checked: number[] };
 

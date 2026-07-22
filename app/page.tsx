@@ -5,7 +5,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import SnapSection from "@/components/layout/SnapSection";
 import Countdown from "@/components/screens/Countdown";
 import BirthdayGreetingSection from "@/components/screens/BirthdayGreetingSection";
-import GiftBox from "@/components/screens/GiftBox";
 import PolaroidSection from "@/components/sections/PolaroidSection";
 import SurpriseSection from "@/components/sections/SurpriseSection";
 import GalerySection from "@/components/sections/GalerySection";
@@ -23,9 +22,9 @@ export default function Home() {
   const [isCountdownFinished, setIsCountdownFinished] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  // Auto-play musik saat mencapai step 4 (konten utama)
+  // Auto-play musik saat mencapai step 3 (konten utama)
   useEffect(() => {
-    if (step === 4 && audioRef.current) {
+    if (step === 3 && audioRef.current) {
       // Autoplay bisa dicegah browser sebelum ada interaksi user — biarkan gagal diam-diam.
       audioRef.current.play().catch(() => {});
     }

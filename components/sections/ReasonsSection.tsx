@@ -3,14 +3,9 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
 import { Quote } from "lucide-react";
+import { REASONS as reasons } from "@/content/reasons";
 
 export default function ReasonsSection() {
-  const reasons = [
-    "Senyummu yang selalu bisa mengubah hari yang buruk menjadi baik.",
-    "Kesabaranmu dalam menghadapi segala hal.",
-    "Caramu menatap masa depan dengan penuh semangat.",
-    "Bagaimana kamu selalu peduli dengan orang-orang di sekitarmu.",
-  ];
 
   // Konfigurasi animasi container agar memunculkan anak-anaknya secara bergantian (stagger)
   const containerVariants = {
