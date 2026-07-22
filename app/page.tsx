@@ -16,33 +16,55 @@ import WishGeneratorSection from "@/components/sections/WishGeneratorSection";
 import QuizSection from "@/components/sections/QuizSection";
 import BucketListSection from "@/components/sections/BucketListSection";
 import MoodEnvelopeSection from "@/components/sections/MoodEnvelopeSection";
+import GrandFinaleSection from "@/components/sections/GrandFinaleSection";
+import MusicToggle from "@/components/layout/MusicToggle";
 
 // Didefinisikan di luar Home agar identitas elemen section stabil antar render.
+// Urutan mengikuti alur 3 babak: Mengenang -> Bermain -> Klimaks.
 const MAIN_SECTIONS: StepperSection[] = [
-  { id: "polaroid", variant: "zoomIn", content: <PolaroidSection /> },
+  // Babak I — Mengenang (nostalgia)
   { id: "timeline", variant: "slideLeft", content: <TimelineSection /> },
-  { id: "reasons", variant: "fadeUp", content: <ReasonsSection /> },
+  { id: "polaroid", variant: "zoomIn", content: <PolaroidSection /> },
   { id: "galery", variant: "flipUp", content: <GalerySection /> },
-  { id: "letter", variant: "blurFade", content: <LetterSection /> },
-  { id: "wish", variant: "slideRight", content: <WishGeneratorSection /> },
+  // Babak II — Bermain (tawa, jeda sebelum klimaks)
+  { id: "reasons", variant: "fadeUp", content: <ReasonsSection /> },
   { id: "quiz", variant: "zoomIn", content: <QuizSection /> },
-  { id: "bucketlist", variant: "fadeUp", content: <BucketListSection /> },
+  { id: "bucketlist", variant: "slideRight", content: <BucketListSection /> },
   { id: "mood", variant: "slideLeft", content: <MoodEnvelopeSection /> },
-  { id: "surprise", variant: "flipUp", content: <SurpriseSection /> },
+  // Babak III — Klimaks (intim)
+  { id: "wish", variant: "slideRight", content: <WishGeneratorSection /> },
+  { id: "letter", variant: "blurFade", content: <LetterSection /> },
+  { id: "surprise", variant: "fadeUp", content: <SurpriseSection /> },
+  { id: "finale", variant: "blurFade", content: <GrandFinaleSection /> },
 ];
 
 export default function Home() {
   const [step, setStep] = useState(0);
   const [isCountdownFinished, setIsCountdownFinished] = useState(false);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   // Auto-play musik saat mencapai step 3 (konten utama)
   useEffect(() => {
     if (step === 3 && audioRef.current) {
       // Autoplay bisa dicegah browser sebelum ada interaksi user — biarkan gagal diam-diam.
-      audioRef.current.play().catch(() => {});
+      audioRef.current
+        .play()
+        .then(() => setIsMusicPlaying(true))
+        .catch(() => setIsMusicPlaying(false));
     }
   }, [step]);
+
+  const toggleMusic = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (audio.paused) {
+      audio.play().then(() => setIsMusicPlaying(true)).catch(() => {});
+    } else {
+      audio.pause();
+      setIsMusicPlaying(false);
+    }
+  };
 
   // Auto transition dari Countdown ke GiftBox
   useEffect(() => {
@@ -140,6 +162,7 @@ export default function Home() {
             className="absolute inset-0 w-full h-full"
           >
             <SectionStepper sections={MAIN_SECTIONS} buttonDelayMs={5000} />
+            <MusicToggle playing={isMusicPlaying} onToggle={toggleMusic} />
           </motion.div>
         )}
 

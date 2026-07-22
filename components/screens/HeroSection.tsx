@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import Image from "next/image";
@@ -9,15 +9,15 @@ export default function HeroCelebration({ onStart }: { onStart?: () => void }) {
   const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
 
   const leftPolaroids = [
-    { id: 1, src: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=300", moment:"pantai", rotate: "-12deg", top: "15%", left: "4%" },
-    { id: 2, src: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=300", moment:"gunung", rotate: "8deg", top: "42%", left: "2%" },
-    { id: 3, src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=300", moment:"laut", rotate: "-6deg", top: "70%", left: "5%" },
+    { id: 1, src: "/14.jpeg", moment:"pantai", rotate: "-12deg", top: "15%", left: "4%" },
+    { id: 2, src: "/15.jpeg", moment:"gunung", rotate: "8deg", top: "42%", left: "2%" },
+    { id: 3, src: "/12.jpeg", moment:"laut", rotate: "-6deg", top: "70%", left: "5%" },
   ];
 
   const rightPolaroids = [
-    { id: 4, src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=300", moment:"laut", rotate: "10deg", top: "18%", right: "4%" },
-    { id: 5, src: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300", moment:"gunung", rotate: "-15deg", top: "45%", right: "2%" },
-    { id: 6, src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300", moment:"pantai", rotate: "5deg", top: "72%", right: "5%" },
+    { id: 4, src: "/10.jpeg", moment:"laut", rotate: "10deg", top: "18%", right: "4%" },
+    { id: 5, src: "/11.jpeg", moment:"gunung", rotate: "-15deg", top: "45%", right: "2%" },
+    { id: 6, src: "/9.jpeg", moment:"pantai", rotate: "5deg", top: "72%", right: "5%" },
   ];
 
   const mobilePolaroids = [

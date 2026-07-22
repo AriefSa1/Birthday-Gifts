@@ -26,7 +26,12 @@ export default function LetterSection() {
     // PERBAIKAN: Gunakan min-h-[100dvh] agar menyesuaikan layar browser HP dengan tepat
     <div className="w-full max-w-2xl mx-auto px-4 py-8 md:py-12 min-h-[100dvh] flex flex-col justify-between selection:bg-pink-500/30 selection:text-pink-200">
       <div className="flex-grow flex flex-col justify-center my-auto pt-4 md:pt-0">
-        <Card size="lg" tone="strong" className="w-full min-h-[55vh] md:min-h-[60vh]">
+        {/* Bayangan gelap ekstra-lebar meredupkan sekeliling — momen surat terasa lebih intim */}
+        <Card
+          size="lg"
+          tone="strong"
+          className="w-full min-h-[55vh] md:min-h-[60vh] shadow-[0_0_100px_60px_rgba(0,0,0,0.45)]"
+        >
           <AnimatePresence mode="wait">
             <motion.div
               key={LETTER_STEPS[currentIndex].id}

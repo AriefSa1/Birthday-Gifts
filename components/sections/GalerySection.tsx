@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import { motion, Variants } from "framer-motion";
 import { Camera } from "lucide-react";
 import Image from "next/image";
@@ -31,6 +32,9 @@ function isWide(index: number): boolean {
 }
 
 export default function GalerySection() {
+  // Di HP tidak ada hover, jadi caption juga bisa dibuka-tutup dengan tap.
+  const [activeId, setActiveId] = useState<number | null>(null);
+
   return (
     <div className="flex w-full max-w-5xl mx-auto p-4 text-left">
       {/* Box Utama Bergaya Glassmorphism Gelap Premium */}
@@ -62,7 +66,8 @@ export default function GalerySection() {
               key={photo.id}
               variants={itemVariants}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className={`relative h-52 md:h-64 rounded-2xl overflow-hidden border border-white/10 shadow-xl group transform-gpu ${
+              onClick={() => setActiveId((prev) => (prev === photo.id ? null : photo.id))}
+              className={`relative h-52 md:h-64 rounded-2xl overflow-hidden border border-white/10 shadow-xl group transform-gpu cursor-pointer ${
                 isWide(index) ? "md:col-span-3" : "md:col-span-2"
               }`}
             >
@@ -81,8 +86,12 @@ export default function GalerySection() {
                 </span>
               )}
 
-              {/* Caption muncul sebagai overlay saat hover, biar tampilan grid tetap bersih */}
-              <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/70 via-black/30 to-transparent px-3 pt-8 pb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              {/* Caption sebagai overlay: hover di desktop, tap di HP */}
+              <div
+                className={`absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/70 via-black/30 to-transparent px-3 pt-8 pb-3 transition-opacity duration-300 ${
+                  activeId === photo.id ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+                }`}
+              >
                 <p className="text-xs md:text-sm text-pink-50 leading-relaxed font-light">
                   &ldquo;{photo.caption}&rdquo;
                 </p>

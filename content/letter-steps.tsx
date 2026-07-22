@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Camera, Video, Music } from "lucide-react";
+import { Camera, Music } from "lucide-react";
 import TypewriterText from "@/components/ui/TypewriterText";
 
 export type LetterStep = {
@@ -57,7 +57,9 @@ export const LETTER_STEPS: LetterStep[] = [
       <div className="space-y-6 text-center">
         <div className="aspect-video w-full bg-black/40 rounded-xl flex items-center justify-center border border-white/10 overflow-hidden relative group">
           <div className="flex flex-col items-center gap-2 text-pink-300/60">
-            <Video size={36} strokeWidth={1.5} />
+            <video controls preload="none">
+              <source src="/video.mp4" type="video/mp4" />
+            </video>
             <p className="text-xs tracking-wider uppercase">[ Tutor Edit Video Butir ]</p>
           </div>
         </div>

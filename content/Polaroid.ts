@@ -86,7 +86,7 @@ export const SparkContent: Sparks[] = [
 export const PolaroidPhotos: Polaroid[] = [
 	{ 
 		id: 1, 
-		src: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=900&auto=format&fit=crop", 
+		src: "/1.jpeg", 
 		top: "22%", 
 		left: "25%", 
 		rotate: -20, 
@@ -95,7 +95,7 @@ export const PolaroidPhotos: Polaroid[] = [
 	{ 
 		
 		id: 2, 
-		src: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=900&auto=format&fit=crop", 
+		src: "/8.jpeg", 
 		top: "15%", 
 		left: "38%", 
 		rotate: -10, 
@@ -103,7 +103,7 @@ export const PolaroidPhotos: Polaroid[] = [
 	},
 	{ 
 		id: 3, 
-		src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=900&auto=format&fit=crop", 
+		src: "/5.jpeg", 
 		top: "15%", 
 		left: "62%", 
 		rotate: 10, 
@@ -111,7 +111,7 @@ export const PolaroidPhotos: Polaroid[] = [
 	},
 	{ 
 		id: 4, 
-		src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=900&auto=format&fit=crop", 
+		src: "/4.jpeg", 
 		top: "22%", 
 		left: "75%", 
 		rotate: 20, 
@@ -119,7 +119,7 @@ export const PolaroidPhotos: Polaroid[] = [
 	},
 	{ 
 		id: 5, 
-		src: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=900&auto=format&fit=crop", 
+		src: "/12.jpeg", 
 		top: "28%", 
 		left: "50%", 
 		rotate: 0, 
@@ -127,7 +127,7 @@ export const PolaroidPhotos: Polaroid[] = [
 	},
 	{ 
 		id: 6, 
-		src: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=900&auto=format&fit=crop", 
+		src: "/9.jpeg", 
 		top: "42%", 
 		left: "15%", 
 		rotate: -25, 
@@ -135,7 +135,7 @@ export const PolaroidPhotos: Polaroid[] = [
 	},
 	{ 
 		id: 7, 
-		src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=900&auto=format&fit=crop", 
+		src: "/15.jpeg", 
 		top: "62%", 
 		left: "25%", 
 		rotate: -15, 
@@ -143,7 +143,7 @@ export const PolaroidPhotos: Polaroid[] = [
 	},
 	{ 
 		id: 8, 
-		src: "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?q=80&w=900&auto=format&fit=crop", 
+		src: "/3.jpeg", 
 		top: "42%", 
 		left: "85%", 
 		rotate: 25, 
@@ -151,7 +151,7 @@ export const PolaroidPhotos: Polaroid[] = [
 	},
 	{ 
 		id: 9, 
-		src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=900&auto=format&fit=crop", 
+		src: "/4.jpeg", 
 		top: "62%", 
 		left: "75%", 
 		rotate: 15, 
@@ -159,7 +159,7 @@ export const PolaroidPhotos: Polaroid[] = [
 	},
 	{ 
 		id: 10,
-		 src: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=900&auto=format&fit=crop"
+		 src: "/7.jpeg"
 		 , top: "45%", 
 		 left: "35%", 
 		 rotate: -5, 
@@ -167,7 +167,7 @@ export const PolaroidPhotos: Polaroid[] = [
 	},
 	{ 
 		id: 11,
-		 src: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=900&auto=format&fit=crop"
+		 src: "/7.jpeg"
 		 , top: "45%", 
 		 left: "65%", 
 		 rotate: 5, 
@@ -175,7 +175,7 @@ export const PolaroidPhotos: Polaroid[] = [
 	},
 	{ 
 		id: 12,
-		 src: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=900&auto=format&fit=crop"
+		 src: "/7.jpeg"
 		 , top: "58%", 
 		 left: "50%", 
 		 rotate: 0, 
@@ -183,7 +183,7 @@ export const PolaroidPhotos: Polaroid[] = [
 	},
 	{ 
 		id: 13,
-		 src: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=900&auto=format&fit=crop"
+		 src: "/7.jpeg"
 		 , top: "72%", 
 		 left: "35%", 
 		 rotate: -10, 
@@ -191,7 +191,7 @@ export const PolaroidPhotos: Polaroid[] = [
 	},
 	{ 
 		id: 14,
-		 src: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=900&auto=format&fit=crop"
+		 src: "/7.jpeg"
 		 , top: "72%", 
 		 left: "65%", 
 		 rotate: 10, 
@@ -199,7 +199,7 @@ export const PolaroidPhotos: Polaroid[] = [
 	},
 	{ 
 		id: 15,
-		 src: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=900&auto=format&fit=crop"
+		 src: "/7.jpeg"
 		 , top: "88%", 
 		 left: "50%", 
 		 rotate: 0, 
