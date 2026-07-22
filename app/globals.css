@@ -16,6 +16,27 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
+/* Kertas surat bergaris untuk LetterSection */
+.letter-paper {
+  background-color: #fffdf6;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 30px,
+    rgba(217, 140, 160, 0.14) 31px
+  );
+}
+
+/* Selotip washi transparan bermotif garis miring */
+.washi-tape {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(244, 114, 182, 0.35),
+    rgba(244, 114, 182, 0.35) 6px,
+    rgba(251, 207, 232, 0.45) 6px,
+    rgba(251, 207, 232, 0.45) 12px
+  );
+}
+
 /* Nyala api lilin di Grand Finale */
 @keyframes candle-flicker {
   0%, 100% { transform: scaleY(1) rotate(-2deg); opacity: 0.95; }

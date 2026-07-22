@@ -7,6 +7,7 @@ export type LetterStep = {
   id: string;
   title: string;
   tag: string;
+  icon: string;
   component: ReactNode;
 };
 
@@ -16,6 +17,7 @@ export const LETTER_STEPS: LetterStep[] = [
     id: "surat",
     title: "Halo Butir...",
     tag: "✧ SURAT UNTUKMU ✧",
+    icon: "💌",
     component: (
       <div className="space-y-5 md:space-y-6 text-sm md:text-base text-rose-800/90 leading-relaxed pr-2 font-serif tracking-wide">
         <p className="uppercase text-xs font-bold tracking-widest text-rose-500/90 drop-shadow-[0_0_8px_rgba(244,114,182,0.5)]">
@@ -45,6 +47,9 @@ export const LETTER_STEPS: LetterStep[] = [
             delay={16}
           />
         </p>
+        <p className="text-right italic text-rose-500/90 pt-2">
+          <TypewriterText text="— dari aku, yang sayangnya nggak pernah habis" delay={19} />
+        </p>
       </div>
     ),
   },
@@ -52,6 +57,7 @@ export const LETTER_STEPS: LetterStep[] = [
     id: "foto",
     title: "Momen Favoritku",
     tag: "✧ MEMORI KITA ✧",
+    icon: "📸",
     component: (
       <div className="space-y-6 text-center">
         <div className="aspect-[4/3] w-full rounded-xl overflow-hidden border border-pink-400/30 relative shadow-lg">
@@ -73,6 +79,7 @@ export const LETTER_STEPS: LetterStep[] = [
     id: "video",
     title: "Pesan Kecil Untukmu",
     tag: "✧ CINEMATIC MOMENT ✧",
+    icon: "🎬",
     component: (
       <div className="space-y-6 text-center">
         <div className="aspect-video w-full bg-black/40 rounded-xl flex items-center justify-center border border-rose-200/60 overflow-hidden relative group">
@@ -93,6 +100,7 @@ export const LETTER_STEPS: LetterStep[] = [
     id: "musik",
     title: "Lagu Kita",
     tag: "✧ OUR SONG ✧",
+    icon: "🎵",
     component: (
       <div className="space-y-6 text-center py-4">
         <div className="flex justify-center">
