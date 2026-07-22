@@ -4,36 +4,8 @@ import React from "react";
 import { useState, useRef } from 'react';
 import { motion, Variants, useMotionValue, useTransform, useSpring } from "framer-motion";
 import Image from "next/image";
-
-// Daftar 15 polaroid untuk bentuk hati (Center)
-const polaroids = [
-  { id: 1, src: "/foto1.jpg", top: "22%", left: "25%", rotate: -20, zIndex: 2 },
-  { id: 2, src: "/foto2.jpg", top: "15%", left: "38%", rotate: -10, zIndex: 3 },
-  { id: 3, src: "/foto3.jpg", top: "15%", left: "62%", rotate: 10, zIndex: 3 },
-  { id: 4, src: "/foto4.jpg", top: "22%", left: "75%", rotate: 20, zIndex: 2 },
-  { id: 5, src: "/foto5.jpg", top: "28%", left: "50%", rotate: 0, zIndex: 1 },
-  { id: 6, src: "/foto6.jpg", top: "42%", left: "15%", rotate: -25, zIndex: 4 },
-  { id: 7, src: "/foto7.jpg", top: "62%", left: "25%", rotate: -15, zIndex: 5 },
-  { id: 8, src: "/foto8.jpg", top: "42%", left: "85%", rotate: 25, zIndex: 4 },
-  { id: 9, src: "/foto9.jpg", top: "62%", left: "75%", rotate: 15, zIndex: 5 },
-  { id: 10, src: "/foto10.jpg", top: "45%", left: "35%", rotate: -5, zIndex: 6 },
-  { id: 11, src: "/foto11.jpg", top: "45%", left: "65%", rotate: 5, zIndex: 6 },
-  { id: 12, src: "/foto12.jpg", top: "58%", left: "50%", rotate: 0, zIndex: 7 },
-  { id: 13, src: "/foto13.jpg", top: "72%", left: "35%", rotate: -10, zIndex: 8 },
-  { id: 14, src: "/foto14.jpg", top: "72%", left: "65%", rotate: 10, zIndex: 8 },
-  { id: 15, src: "/foto15.jpg", top: "88%", left: "50%", rotate: 0, zIndex: 10 },
-];
-
-const sparks = [
-  { id: 1, top: "20%", left: "10%", size: 6, duration: 3, delay: 0 },
-  { id: 2, top: "70%", left: "15%", size: 4, duration: 4, delay: 1 },
-  { id: 3, top: "25%", left: "85%", size: 5, duration: 2.5, delay: 0.5 },
-  { id: 4, top: "80%", left: "80%", size: 7, duration: 3.5, delay: 1.5 },
-  { id: 5, top: "45%", left: "5%", size: 4, duration: 3, delay: 2 },
-  { id: 6, top: "50%", left: "92%", size: 5, duration: 4.5, delay: 0.2 },
-  { id: 7, top: "10%", left: "50%", size: 6, duration: 3.2, delay: 0.8 },
-  { id: 8, top: "95%", left: "45%", size: 4, duration: 3.8, delay: 1.2 },
-];
+import { PolaroidPhotos } from "@/content/Polaroid";
+import { SparkContent } from "@/content/Polaroid";
 
 export default function PolaroidSection() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -163,7 +135,7 @@ export default function PolaroidSection() {
       </motion.div>
 
       {/* SPARKS / PARTIKEL KOSMIK */}
-      {sparks.map((spark) => (
+      {SparkContent.map((spark) => (
         <motion.div
           key={`spark-${spark.id}`}
           initial={{ opacity: 0, y: 10 }}
@@ -214,7 +186,7 @@ export default function PolaroidSection() {
             viewport={{ once: false, margin: "-50px" }}
             className="w-full h-full relative"
           >
-            {polaroids.map((item) => (
+            {PolaroidPhotos.map((item) => (
               <motion.div
                 key={item.id}
                 custom={item.rotate} 
