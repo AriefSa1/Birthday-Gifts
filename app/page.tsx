@@ -78,7 +78,7 @@ export default function Home() {
 
   return (
     <main className="h-dvh w-screen flex flex-col items-center justify-center overflow-hidden relative z-10">
-      <audio ref={audioRef} src="/lagu-romantis1.wav" loop />
+      <audio ref={audioRef} src="/lagu-romantis.wav" loop />
 
       <AnimatePresence mode="wait">
         

@@ -110,7 +110,7 @@ export default function HeroCelebration({ onStart }: { onStart?: () => void }) {
         </p>
         
         <h1 className="font-serif text-5xl md:text-7xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-br from-rose-500 via-pink-400 to-rose-400 drop-shadow-[0_0_20px_rgba(216,112,147,0.25)]">
-          Ini Fotonya <br className="md:hidden"/> Mana ya ?
+          Sebuah Cerita <br className="md:hidden"/> Tentang Kita
         </h1>
         
         <p className="text-xs md:text-sm text-rose-500/70 font-light italic tracking-wider">

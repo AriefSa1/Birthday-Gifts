@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
-import { Camera, Music } from "lucide-react";
+import Image from "next/image";
+import { Music } from "lucide-react";
 import TypewriterText from "@/components/ui/TypewriterText";
 
 export type LetterStep = {
@@ -9,49 +10,68 @@ export type LetterStep = {
   component: ReactNode;
 };
 
-// TODO: isi surat, foto, video, dan lagu asli di sini
+// TODO: sesuaikan isi surat, foto, video, dan judul lagu dengan versi kalian
 export const LETTER_STEPS: LetterStep[] = [
   {
     id: "surat",
     title: "Halo Butir...",
     tag: "✧ SURAT UNTUKMU ✧",
     component: (
-      // PERBAIKAN: text-sm untuk HP, text-base untuk komputer
       <div className="space-y-5 md:space-y-6 text-sm md:text-base text-rose-800/90 leading-relaxed pr-2 font-serif tracking-wide">
         <p className="uppercase text-xs font-bold tracking-widest text-rose-500/90 drop-shadow-[0_0_8px_rgba(244,114,182,0.5)]">
-          <TypewriterText text="Dear Kamu," />
+          <TypewriterText text="Dear kamu, orang paling spesial hari ini," />
         </p>
         <p>
-          <TypewriterText text="ini surat..." delay={0.5} />
+          <TypewriterText
+            text="Selamat ulang tahun ya sayang. Hari ini bumi ngerayain satu hal yang paling aku syukuri: kamu lahir ke dunia."
+            delay={1.2}
+          />
         </p>
         <p>
-          <TypewriterText text="Tapi belum ada isinya, wkwkwk... 😅" delay={1.3} />
+          <TypewriterText
+            text="Aku nggak jago ngerangkai kata-kata puitis. Tapi yang aku tau, sejak ada kamu, hari-hari biasa jadi punya alasan buat ditunggu. Ketawamu, ngambekmu, cerewetmu — semuanya jadi bagian favoritku."
+            delay={4.2}
+          />
         </p>
         <p>
-          <TypewriterText text="klik next yuk !!!" delay={2.3} />
+          <TypewriterText
+            text="Makasih udah bertahan di tahun yang nggak selalu gampang. Makasih udah jadi tempat pulang paling nyaman. Doaku simpel: semoga kamu sehat terus, bahagiamu nggak habis-habis, dan semua mimpi yang kamu bisikin pelan-pelan itu satu per satu jadi nyata."
+            delay={9.5}
+          />
+        </p>
+        <p>
+          <TypewriterText
+            text="Bertambahnya umur, bertambah juga sayangku. Selamat bertambah usia, cintaku. 🤍"
+            delay={16}
+          />
         </p>
       </div>
     ),
   },
   {
     id: "foto",
-    title: "Ini Fotonya Mana Ya ?",
+    title: "Momen Favoritku",
     tag: "✧ MEMORI KITA ✧",
     component: (
       <div className="space-y-6 text-center">
-        <div className="aspect-[4/3] w-full bg-rose-100/60 rounded-xl flex items-center justify-center border border-dashed border-pink-400/30 backdrop-blur-sm group hover:border-pink-400/60 transition-all duration-300">
-          <div className="flex flex-col items-center gap-2 text-rose-500/80 group-hover:text-rose-500 transition-colors">
-            <Camera size={32} strokeWidth={1.5} />
-            <p className="text-xs tracking-wider uppercase">[ Fotonya Ilang ]</p>
-          </div>
+        <div className="aspect-[4/3] w-full rounded-xl overflow-hidden border border-pink-400/30 relative shadow-lg">
+          <Image
+            src="/8.jpeg"
+            alt="Momen favorit kita"
+            fill
+            sizes="(max-width: 768px) 90vw, 40rem"
+            className="object-cover object-center"
+          />
         </div>
-        <p className="text-sm italic text-rose-600/80">&ldquo;Sebab dalam setiap foto, waktu berhenti untuk mengabadikan kebahagiaan kita.&rdquo;</p>
+        <p className="text-sm italic text-rose-600/80">
+          &ldquo;Dari sekian banyak foto di galeriku, yang ini paling susah dilewatin tanpa senyum-senyum sendiri.&rdquo;
+        </p>
       </div>
     ),
   },
   {
     id: "video",
-    title: "Tutor edit video butir",
+    title: "Pesan Kecil Untukmu",
     tag: "✧ CINEMATIC MOMENT ✧",
     component: (
       <div className="space-y-6 text-center">
@@ -60,16 +80,18 @@ export const LETTER_STEPS: LetterStep[] = [
             <video controls preload="none">
               <source src="/video.mp4" type="video/mp4" />
             </video>
-            <p className="text-xs tracking-wider uppercase">[ Tutor Edit Video Butir ]</p>
+            <p className="text-xs tracking-wider uppercase">[ Putar videonya ya ]</p>
           </div>
         </div>
-        <p className="text-sm text-rose-600/80">Sebuah pesan singkat yang tak bisa diungkapkan hanya lewat kata-kata tertulis.</p>
+        <p className="text-sm text-rose-600/80">
+          Ada beberapa hal yang nggak cukup ditulis. Jadi aku rekam, biar kamu bisa dengar langsung.
+        </p>
       </div>
     ),
   },
   {
     id: "musik",
-    title: "Lagune Potong Bebek Angsa",
+    title: "Lagu Kita",
     tag: "✧ OUR SONG ✧",
     component: (
       <div className="space-y-6 text-center py-4">
@@ -79,8 +101,11 @@ export const LETTER_STEPS: LetterStep[] = [
           </div>
         </div>
         <div className="space-y-2">
-          <h4 className="font-medium text-rose-800">Potong Bebek Angsa.mp3</h4>
-          <p className="text-xs text-rose-500/80 uppercase tracking-widest">Artist / Penyanyi</p>
+          {/* TODO: ganti dengan judul & penyanyi lagu kalian */}
+          <h4 className="font-medium text-rose-800">Lagu yang lagi kamu dengar sekarang 🎵</h4>
+          <p className="text-xs text-rose-500/80 uppercase tracking-widest">
+            Setiap kali lagu ini bunyi, yang muncul di kepalaku cuma kamu
+          </p>
         </div>
         <div className="w-full bg-rose-100/60 h-1.5 rounded-full overflow-hidden border border-rose-100/70">
           <div className="bg-gradient-to-r from-pink-400 to-rose-400 h-full w-2/3 shadow-[0_0_8px_rgba(244,114,182,0.7)]"></div>
