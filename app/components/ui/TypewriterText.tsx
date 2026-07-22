@@ -1,6 +1,14 @@
 import { motion, type Variants } from "framer-motion";
 
-export default function TypewriterText({ text, delay = 0 }: { text: string; delay?: number }) {
+export default function TypewriterText({
+  text,
+  delay = 0,
+  start = true,
+}: {
+  text: string;
+  delay?: number;
+  start?: boolean;
+}) {
   const letters = Array.from(text);
 
   const containerVariants: Variants = {
@@ -24,7 +32,7 @@ export default function TypewriterText({ text, delay = 0 }: { text: string; dela
   };
 
   return (
-    <motion.span variants={containerVariants} initial="hidden" animate="visible">
+    <motion.span variants={containerVariants} initial="hidden" animate={start ? "visible" : "hidden"}>
       {letters.map((char, index) => (
         <motion.span key={index} variants={letterVariants}>
           {char}

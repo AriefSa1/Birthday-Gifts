@@ -106,7 +106,7 @@ export default function Galery() {
                   src={photo.url}
                   alt={photo.caption}
                   fill
-                  sizes="(max-width: 640px) 45vw, 22vw"
+                  sizes="(max-width: 1080px) 45vw, 22vw"
                   className="object-cover object-center transform scale-100 group-hover:scale-105 transition-transform duration-500"
                 />
 

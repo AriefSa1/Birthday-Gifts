@@ -185,7 +185,7 @@ export default function Home() {
             className="w-full h-full flex items-center justify-center"
           >
             {/* TODO: ganti "Nama" dengan nama penerima asli */}
-            <BirthdayGreetingSection name="Tiara Indah Devi" onContinue={() => setStep(2)} />
+            <BirthdayGreetingSection name="Nama" onContinue={() => setStep(2)} />
           </motion.div>
         )}
 
@@ -199,12 +199,12 @@ export default function Home() {
             transition={{ duration: 1 }}
             className="flex flex-col items-center justify-center text-center w-full h-full"
           >
-            <GiftBox onOpen={() => setStep(3)} />
+            <HeroSection onStart={() => setStep(3)} />
           </motion.div>
         )}
 
         {/* LAYAR 4: SELEBRASI AWAL (HERO SECTION) */}
-        {step === 3 && (
+        {/* {step === 3 && (
           <motion.div
             key="layar3"
             initial={{ opacity: 0, y: 50 }}
@@ -215,14 +215,14 @@ export default function Home() {
           >
             <HeroSection onStart={() => setStep(4)} />
           </motion.div>
-        )}
+        )} */}
 
         {/* ======================================================== */}
         {/* LAYAR 5 (STEP 4): KONTEN UTAMA DENGAN SCROLL SNAP MAGNET */}
         {/* ======================================================== */}
-        {step === 4 && (
+        {step === 3 && (
           <motion.div
-            key="layar4"
+            key="layar3"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}

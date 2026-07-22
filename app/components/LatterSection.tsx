@@ -1,19 +1,15 @@
 "use client";
-import React, { useRef, useState } from "react";
-import { motion, AnimatePresence, Variants, useInView } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { Heart, Camera, Video, Music, ChevronLeft, ChevronRight } from "lucide-react";
 import TypewriterText from "./ui/TypewriterText";
-import Envelope from "./ui/Envelope";
+import Card from "./ui/Card";
 
 // ==========================================
 // KOMPONEN UTAMA
 // ==========================================
 export default function SideContent() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-  // Amplop terbuka saat section ini benar-benar terlihat (scroll ke sini),
-  // dan bisa terbuka ulang kalau discroll pergi-balik.
-  const isInView = useInView(containerRef, { once: false, amount: 0.3 });
 
   const steps = [
     {
@@ -30,10 +26,10 @@ export default function SideContent() {
             <TypewriterText text="ini surat..." delay={0.5} />
           </p>
           <p>
-            <TypewriterText text="Tapi belum ada isinya, wkwkwk... 😅" delay={6} />
+            <TypewriterText text="Tapi belum ada isinya, wkwkwk... 😅" delay={1.3} />
           </p>
           <p>
-            <TypewriterText text="klik next yuk !!!" delay={11} />
+            <TypewriterText text="klik next yuk !!!" delay={2.3} />
           </p>
         </div>
       )
@@ -109,13 +105,9 @@ export default function SideContent() {
 
   return (
     // PERBAIKAN: Gunakan min-h-[100dvh] agar menyesuaikan layar browser HP dengan tepat
-    <div
-      ref={containerRef}
-      className="w-full max-w-2xl mx-auto px-4 py-8 md:py-12 min-h-[100dvh] flex flex-col justify-between selection:bg-pink-500/30 selection:text-pink-200"
-    >
-
+    <div className="w-full max-w-2xl mx-auto px-4 py-8 md:py-12 min-h-[100dvh] flex flex-col justify-between selection:bg-pink-500/30 selection:text-pink-200">
       <div className="flex-grow flex flex-col justify-center my-auto pt-4 md:pt-0">
-        <Envelope isOpen={isInView} cardTone="dark" className="w-full min-h-[55vh] md:min-h-[60vh]">
+        <Card size="lg" tone="strong" className="w-full min-h-[55vh] md:min-h-[60vh]">
           <AnimatePresence mode="wait">
             <motion.div
               key={steps[currentIndex].id}
@@ -123,7 +115,7 @@ export default function SideContent() {
               animate="visible"
               exit="exit"
               variants={pageTransition}
-              className="w-full h-full flex flex-col p-6 md:p-8 text-left relative overflow-hidden transform-gpu"
+              className="w-full h-full flex flex-col text-left relative overflow-hidden transform-gpu"
             >
               <div className="absolute -top-10 -right-10 w-32 h-32 bg-pink-500/10 rounded-full blur-2xl pointer-events-none" />
               <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-rose-500/10 rounded-full blur-2xl pointer-events-none" />
@@ -141,7 +133,7 @@ export default function SideContent() {
               </div>
             </motion.div>
           </AnimatePresence>
-        </Envelope>
+        </Card>
       </div>
 
       {/* Navigasi Control Bar */}

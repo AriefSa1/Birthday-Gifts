@@ -5,7 +5,7 @@ import { Smile, Coffee, CloudRain, Flame, type LucideIcon } from "lucide-react";
 import SectionHeading from "./ui/SectionHeading";
 import Button from "./ui/Button";
 import TypewriterText from "./ui/TypewriterText";
-import Envelope from "./ui/Envelope";
+import Card from "./ui/Card";
 
 type MoodId = "senang" | "capek" | "sedih" | "marah";
 
@@ -54,7 +54,7 @@ const MOODS: MoodConfig[] = [
   },
   {
     id: "sedih",
-    label: "Lagi Sedih",
+    label: "Lagi Sediih",
     icon: CloudRain,
     border: "border-orange-400/40",
     bg: "bg-orange-500/10",
@@ -128,14 +128,11 @@ export default function MoodEnvelopeSection() {
         </div>
       ) : (
         <div className="flex flex-col items-center gap-8 w-full">
-          <Envelope key={drawCount} isOpen className="w-64 h-44">
-            <div className="p-4 h-full flex items-start">
-              <p className="text-xs md:text-sm text-gray-700 text-left leading-relaxed font-serif">
-                <TypewriterText text={message} delay={0.55} />
-              </p>
-            </div>
-          </Envelope>
-
+          <Card size="lg" tone="strong" className="w-full">
+            <p className="text-sm md:text-base text-pink-100/90 text-left leading-relaxed font-serif">
+              <TypewriterText text={message} delay={0.2} />
+            </p>
+          </Card>
           <div className="flex gap-3 flex-wrap justify-center">
             <Button onClick={() => drawMessage(selectedMood!)}>Buka Amplop Lagi</Button>
             <Button onClick={() => setSelectedMood(null)}>Pilih Mood Lain</Button>
