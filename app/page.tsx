@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import SnapSection from "@/components/layout/SnapSection";
+import SectionStepper, { type StepperSection } from "@/components/layout/SectionStepper";
 import Countdown from "@/components/screens/Countdown";
 import BirthdayGreetingSection from "@/components/screens/BirthdayGreetingSection";
 import PolaroidSection from "@/components/sections/PolaroidSection";
@@ -16,6 +16,20 @@ import WishGeneratorSection from "@/components/sections/WishGeneratorSection";
 import QuizSection from "@/components/sections/QuizSection";
 import BucketListSection from "@/components/sections/BucketListSection";
 import MoodEnvelopeSection from "@/components/sections/MoodEnvelopeSection";
+
+// Didefinisikan di luar Home agar identitas elemen section stabil antar render.
+const MAIN_SECTIONS: StepperSection[] = [
+  { id: "polaroid", variant: "zoomIn", content: <PolaroidSection /> },
+  { id: "timeline", variant: "slideLeft", content: <TimelineSection /> },
+  { id: "reasons", variant: "fadeUp", content: <ReasonsSection /> },
+  { id: "galery", variant: "flipUp", content: <GalerySection /> },
+  { id: "letter", variant: "blurFade", content: <LetterSection /> },
+  { id: "wish", variant: "slideRight", content: <WishGeneratorSection /> },
+  { id: "quiz", variant: "zoomIn", content: <QuizSection /> },
+  { id: "bucketlist", variant: "fadeUp", content: <BucketListSection /> },
+  { id: "mood", variant: "slideLeft", content: <MoodEnvelopeSection /> },
+  { id: "surprise", variant: "flipUp", content: <SurpriseSection /> },
+];
 
 export default function Home() {
   const [step, setStep] = useState(0);
@@ -114,71 +128,18 @@ export default function Home() {
           </motion.div>
         )}
 
-        {/* LAYAR 4: SELEBRASI AWAL (HERO SECTION) */}
-        {/* {step === 3 && (
-          <motion.div
-            key="layar3"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            // Menambahkan flex layout agar konten di dalam hero section berada di tengah
-            className="w-full h-full flex items-center justify-center"
-          >
-            <HeroSection onStart={() => setStep(4)} />
-          </motion.div>
-        )} */}
-
-        {/* ======================================================== */}
-        {/* LAYAR 5 (STEP 4): KONTEN UTAMA DENGAN SCROLL SNAP MAGNET */}
-        {/* ======================================================== */}
+        {/* ============================================================= */}
+        {/* LAYAR 4 (STEP 3): KONTEN UTAMA, SATU SECTION PER KLIK LANJUT  */}
+        {/* ============================================================= */}
         {step === 3 && (
           <motion.div
             key="layar3"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            className="absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden snap-y snap-proximity scroll-smooth hide-scrollbar"
+            className="absolute inset-0 w-full h-full"
           >
-            <SnapSection variant="zoomIn">
-              <PolaroidSection />
-            </SnapSection>
-
-            <SnapSection variant="slideLeft">
-              <TimelineSection />
-            </SnapSection>
-
-            <SnapSection variant="fadeUp">
-              <ReasonsSection />
-            </SnapSection>
-
-            <SnapSection variant="flipUp">
-              <GalerySection />
-            </SnapSection>
-
-            <SnapSection variant="blurFade">
-              <LetterSection />
-            </SnapSection>
-
-            <SnapSection variant="slideRight">
-              <WishGeneratorSection />
-            </SnapSection>
-
-            <SnapSection variant="zoomIn">
-              <QuizSection />
-            </SnapSection>
-
-            <SnapSection variant="fadeUp">
-              <BucketListSection />
-            </SnapSection>
-
-            <SnapSection variant="slideLeft">
-              <MoodEnvelopeSection />
-            </SnapSection>
-
-            <SnapSection variant="flipUp">
-              <SurpriseSection />
-            </SnapSection>
-
+            <SectionStepper sections={MAIN_SECTIONS} buttonDelayMs={5000} />
           </motion.div>
         )}
 
