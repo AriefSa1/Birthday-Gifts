@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useSectionState } from "../lib/useSectionState";
-import SectionHeading from "./ui/SectionHeading";
-import ProgressBar from "./ui/ProgressBar";
+import { useSectionState } from "@/hooks/useSectionState";
+import SectionHeading from "@/components/ui/SectionHeading";
+import ProgressBar from "@/components/ui/ProgressBar";
 
 // TODO: ganti dengan mimpi/rencana asli kalian berdua
 const ITEMS = [

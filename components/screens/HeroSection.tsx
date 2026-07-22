@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import Image from "next/image";
-import Button from "./ui/Button";
+import Button from "@/components/ui/Button";
 
 export default function HeroCelebration({ onStart }: { onStart?: () => void }) {
   const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);

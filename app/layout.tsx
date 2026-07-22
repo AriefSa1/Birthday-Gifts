@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import StarBackground from "./components/StarBackground"; // Mengimpor StarBackground yang baru dibuat
+import StarBackground from "@/components/layout/StarBackground";
 import "./globals.css";
 
 const geistSans = Geist({

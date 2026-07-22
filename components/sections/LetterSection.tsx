@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { Heart, Camera, Video, Music, ChevronLeft, ChevronRight } from "lucide-react";
-import TypewriterText from "./ui/TypewriterText";
-import Card from "./ui/Card";
+import TypewriterText from "@/components/ui/TypewriterText";
+import Card from "@/components/ui/Card";
 
 // ==========================================
 // KOMPONEN UTAMA

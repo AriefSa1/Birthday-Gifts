@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import { Smile, Coffee, CloudRain, Flame, type LucideIcon } from "lucide-react";
-import SectionHeading from "./ui/SectionHeading";
-import Button from "./ui/Button";
-import TypewriterText from "./ui/TypewriterText";
-import Card from "./ui/Card";
+import SectionHeading from "@/components/ui/SectionHeading";
+import Button from "@/components/ui/Button";
+import TypewriterText from "@/components/ui/TypewriterText";
+import Card from "@/components/ui/Card";
 
 type MoodId = "senang" | "capek" | "sedih" | "marah";
 

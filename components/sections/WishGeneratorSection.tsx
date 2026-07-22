@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useSectionState } from "../lib/useSectionState";
-import Card from "./ui/Card";
-import Button from "./ui/Button";
-import SectionHeading from "./ui/SectionHeading";
+import { useSectionState } from "@/hooks/useSectionState";
+import Card from "@/components/ui/Card";
+import Button from "@/components/ui/Button";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 const MotionCard = motion.create(Card);
 

@@ -9,20 +9,20 @@ import {
   type Transition,
   type MotionStyle,
 } from "framer-motion";
-import Countdown from "./components/Countdown";
-import BirthdayGreetingSection from "./components/BirthdayGreetingSection";
-import GiftBox from "./components/GiftBox";
-import PolaroidSection from "./components/PolaroidSection";
-import SurpriseSection from "./components/SurpriseSection";
-import GalerySection from "./components/GalerySection";
-import HeroSection from "./components/HeroSection";
-import LatterSection from "./components/LatterSection";
-import ReasonsSection from "./components/ReasonsSection";
-import TimelineSection from "./components/TimelineSection";
-import WishGeneratorSection from "./components/WishGeneratorSection";
-import QuizSection from "./components/QuizSection";
-import BucketListSection from "./components/BucketListSection";
-import MoodEnvelopeSection from "./components/MoodEnvelopeSection";
+import Countdown from "@/components/screens/Countdown";
+import BirthdayGreetingSection from "@/components/screens/BirthdayGreetingSection";
+import GiftBox from "@/components/screens/GiftBox";
+import PolaroidSection from "@/components/sections/PolaroidSection";
+import SurpriseSection from "@/components/sections/SurpriseSection";
+import GalerySection from "@/components/sections/GalerySection";
+import HeroSection from "@/components/screens/HeroSection";
+import LetterSection from "@/components/sections/LetterSection";
+import ReasonsSection from "@/components/sections/ReasonsSection";
+import TimelineSection from "@/components/sections/TimelineSection";
+import WishGeneratorSection from "@/components/sections/WishGeneratorSection";
+import QuizSection from "@/components/sections/QuizSection";
+import BucketListSection from "@/components/sections/BucketListSection";
+import MoodEnvelopeSection from "@/components/sections/MoodEnvelopeSection";
 
 // Didefinisikan di luar Home agar identitas komponen stabil antar render
 // (di dalam Home, setiap perubahan state membuat ulang fungsi ini dan me-remount seluruh section).
@@ -245,7 +245,7 @@ export default function Home() {
             </SnapSection>
 
             <SnapSection variant="blurFade">
-              <LatterSection />
+              <LetterSection />
             </SnapSection>
 
             <SnapSection variant="slideRight">

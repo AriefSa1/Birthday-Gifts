@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { resetAllSections, describeDbError } from "@/app/lib/db";
+import { resetAllSections, describeDbError } from "@/lib/server/db";
 
 export async function POST(request: NextRequest) {
   if (!process.env.ADMIN_RESET_PASSWORD) {

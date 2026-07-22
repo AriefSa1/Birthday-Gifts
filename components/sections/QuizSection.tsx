@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useSectionState } from "../lib/useSectionState";
-import Card from "./ui/Card";
-import SectionHeading from "./ui/SectionHeading";
-import ProgressBar from "./ui/ProgressBar";
+import { useSectionState } from "@/hooks/useSectionState";
+import Card from "@/components/ui/Card";
+import SectionHeading from "@/components/ui/SectionHeading";
+import ProgressBar from "@/components/ui/ProgressBar";
 
 const MotionCard = motion.create(Card);
 

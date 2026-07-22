@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import confetti from "canvas-confetti";
-import TypewriterText from "./ui/TypewriterText";
-import Button from "./ui/Button";
+import TypewriterText from "@/components/ui/TypewriterText";
+import Button from "@/components/ui/Button";
 
 const SKIP_LOCK_SECONDS = 10;
 

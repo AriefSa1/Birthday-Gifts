@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getSectionData, saveSectionData, describeDbError } from "@/app/lib/db";
+import { getSectionData, saveSectionData, describeDbError } from "@/lib/server/db";
 
 const ALLOWED_SECTIONS = ["wish", "quiz", "bucketlist"];
 
