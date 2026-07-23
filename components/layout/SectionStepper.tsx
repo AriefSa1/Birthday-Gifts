@@ -74,21 +74,27 @@ export default function SectionStepper({
   buttonDelayMs?: number;
 }) {
   const [index, setIndex] = useState(0);
-  const [showNext, setShowNext] = useState(false);
+  const [showNav, setShowNav] = useState(false);
 
-  // Tombol Lanjut baru muncul setelah delay; timer jalan ulang tiap ganti section
-  // (reset ke tersembunyi dilakukan di goNext, bukan di sini, agar tidak setState sinkron dalam effect).
+  // Tombol navigasi baru muncul setelah delay; timer jalan ulang tiap ganti section
+  // (reset ke tersembunyi dilakukan di goNext/goPrev, bukan di sini, agar tidak setState sinkron dalam effect).
   useEffect(() => {
-    const timer = setTimeout(() => setShowNext(true), buttonDelayMs);
+    const timer = setTimeout(() => setShowNav(true), buttonDelayMs);
     return () => clearTimeout(timer);
   }, [index, buttonDelayMs]);
 
   const goNext = () => {
-    setShowNext(false);
+    setShowNav(false);
     setIndex((i) => i + 1);
   };
 
+  const goPrev = () => {
+    setShowNav(false);
+    setIndex((i) => i - 1);
+  };
+
   const section = sections[index];
+  const isFirst = index === 0;
   const isLast = index === sections.length - 1;
   const preset = sectionVariants[section.variant ?? "fadeUp"];
 
@@ -111,13 +117,20 @@ export default function SectionStepper({
           {!isLast && (
             <div className="h-16 mt-6 flex items-center justify-center">
               <AnimatePresence>
-                {showNext && (
+                {showNav && (
                   <motion.div
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="flex items-center justify-center gap-4"
                   >
+                    {!isFirst && (
+                      <Button onClick={goPrev} className="inline-flex items-center gap-2">
+                        <Heart size={13} className="fill-pink-500 text-pink-500 animate-pulse" />
+                        Kembali
+                      </Button>
+                    )}
                     <Button onClick={goNext} className="inline-flex items-center gap-2">
                       Lanjut
                       <Heart size={13} className="fill-pink-500 text-pink-500 animate-pulse" />
