@@ -26,15 +26,15 @@ const MAIN_SECTIONS: StepperSection[] = [
   { id: "timeline", variant: "slideLeft", content: <TimelineSection /> },
   { id: "polaroid", variant: "zoomIn", content: <PolaroidSection /> },
   { id: "galery", variant: "flipUp", content: <GalerySection /> },
-  // Babak II — Bermain (tawa, jeda sebelum klimaks)
+  // Babak II — Bermain (tawa, ditutup satu kado kecil sebelum klimaks)
   { id: "reasons", variant: "fadeUp", content: <ReasonsSection /> },
   { id: "quiz", variant: "zoomIn", content: <QuizSection /> },
-  { id: "bucketlist", variant: "slideRight", content: <BucketListSection /> },
   { id: "mood", variant: "slideLeft", content: <MoodEnvelopeSection /> },
-  // Babak III — Klimaks (intim)
+  { id: "bucketlist", variant: "slideRight", content: <BucketListSection /> },
   { id: "wish", variant: "slideRight", content: <WishGeneratorSection /> },
+  { id: "surprise", variant: "zoomIn", content: <SurpriseSection /> },
+  // Babak III — Klimaks (intim, tanpa selingan)
   { id: "letter", variant: "blurFade", content: <LetterSection /> },
-  { id: "surprise", variant: "fadeUp", content: <SurpriseSection /> },
   { id: "finale", variant: "blurFade", content: <GrandFinaleSection /> },
 ];
 
@@ -132,7 +132,7 @@ export default function Home() {
             className="w-full h-full flex items-center justify-center"
           >
             {/* TODO: ganti "Nama" dengan nama penerima asli */}
-            <BirthdayGreetingSection name="Nama" onContinue={() => setStep(2)} />
+            <BirthdayGreetingSection name="Tiara Indah Devi" onContinue={() => setStep(2)} />
           </motion.div>
         )}
 

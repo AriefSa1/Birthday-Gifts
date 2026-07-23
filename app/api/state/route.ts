@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSectionData, saveSectionData, describeDbError } from "@/lib/server/db";
 
-const ALLOWED_SECTIONS = ["wish", "quiz", "bucketlist"];
+const ALLOWED_SECTIONS = ["wish", "quiz", "bucketlist", "coupons"];
 
 export async function GET(request: NextRequest) {
   const section = request.nextUrl.searchParams.get("section");

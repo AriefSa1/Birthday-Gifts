@@ -45,7 +45,7 @@ export default function TimelineSection() {
                 }`}
               >
                 {/* Dot Indicator (Titik Timeline) */}
-                <div className="absolute left-1.75 md:left-1/2 transform md:-translate-x-1/2 w-5 h-5 z-20">
+                <div className="absolute left-1.75 md:left-1/2 transform md:-translate-x-1/2 w-5 h-5 z-20 mt-2">
                   <motion.div 
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
@@ -58,7 +58,7 @@ export default function TimelineSection() {
                 </div>
 
                 {/* Card Konten */}
-                <div className="w-full md:w-[45%] ml-12 md:ml-0">
+                <div className="w-full md:w-[45%] ml-24 md:ml-0">
                   <motion.div 
                     whileHover={{ y: -5, transition: { duration: 0.2 } }}
                     className="group relative bg-white/60 backdrop-blur-xl border border-rose-200/60 p-6 md:p-8 rounded-4xl shadow-xl overflow-hidden transform-gpu"

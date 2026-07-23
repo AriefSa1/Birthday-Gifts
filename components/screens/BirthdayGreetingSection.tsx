@@ -75,7 +75,7 @@ export default function BirthdayGreetingSection({
           ✧ Hari Ini Spesial ✧
         </p>
 
-        <h1 className="font-serif text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-linear-to-br from-rose-500 via-pink-400 to-rose-400 drop-shadow-[0_0_20px_rgba(216,112,147,0.25)] leading-tight">
+        <h1 className="font-serif font-extrabold text-4xl md:text-6xl text-transparent bg-clip-text bg-linear-to-br from-rose-500 via-pink-400 to-rose-400 drop-shadow-[0_0_20px_rgba(216,112,147,0.25)] leading-tight">
           <TypewriterText text="Selamat Ulang Tahun," delay={0.3} />
           <br />
           <TypewriterText text={`${name}! 🎉`} delay={1} />

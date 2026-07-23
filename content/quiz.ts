@@ -7,28 +7,28 @@ export type Question = {
 // TODO: ganti dengan pertanyaan & jawaban asli tentang kalian berdua
 export const QUESTIONS: Question[] = [
   {
-    question: "Di mana pertama kali kita ketemu?",
-    options: ["Kafe deket kampus", "Konser musik", "Acara ulang tahun teman"],
+    question: "Di mana pertama kali kita jalan bareng?",
+    options: ["Ke Pantai", "Ke Coffeshop", "Lomba Mancing"],
     correctIndex: 0,
   },
   {
-    question: "Warna favoritku apa?",
-    options: ["Ungu", "Biru", "Hijau"],
-    correctIndex: 0,
-  },
-  {
-    question: "Makanan yang paling sering aku pesan?",
-    options: ["Nasi goreng", "Mie ayam", "Ayam geprek"],
+    question: "Bulan apa pertama kali kita ketemu?",
+    options: ["Agustus", "Mei", "April"],
     correctIndex: 2,
   },
   {
-    question: "Hal yang bikin aku paling seneng?",
-    options: ["Ditemenin ngobrol lama", "Dikasih kejutan kecil", "Dibeliin makanan"],
+    question: "Makanan apa yang kita pesen sehabis nonton bareng pertama kali?",
+    options: ["Mie ayam", "Nasi goreng", "Ayam geprek"],
     correctIndex: 1,
   },
   {
-    question: "Aku paling takut sama apa?",
-    options: ["Ketinggian", "Kecoa", "Gelap"],
-    correctIndex: 1,
+    question: "Hal yang sering kita lakuin bareng tiap hari?",
+    options: ["Telfon / Video Call", "Jalan-Jalan", "Makan Bareng"],
+    correctIndex: 0,
+  },
+  {
+    question: "Apa yang kita beli waktu balik dari tulungagung?",
+    options: ["Gacoan, Cimol, Martabak", "Sate", "Soto, Donat, Jus"],
+    correctIndex: 2,
   },
 ];
